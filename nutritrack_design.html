@@ -1,0 +1,3799 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NutriTrack - Screens</title>
+    <style>
+        /* Basic grid layout */
+        body { 
+            margin: 0; 
+            padding: 20px; 
+            background-color: #f0f0f0; /* Light background for contrast */ 
+            zoom: 0.75; /* Set default zoom to 75% */
+        }
+        .screens-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr); /* 4 columns */
+            gap: 20px; /* Spacing between screens */
+            justify-items: center; /* Center items horizontally */
+            align-items: start; /* Align items to the top */
+        }
+        .screen-item {
+            text-align: center; /* Center text within the item */
+        }
+        .screen-item h3 {
+            font-weight: bold; 
+            font-size: 1.1em; 
+            margin-bottom: 8px; 
+        }
+    </style>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <div class="screens-grid">
+        <div class="screen-item">
+                      <h3>Dashboard</h3>
+                      
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NutriMate - Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      .dashboard-phone-frame {
+        width: 375px;
+        min-height: 812px;
+        border-radius: 40px;
+        overflow: hidden;
+        position: relative;
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+          0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        border: 1px solid #e2e8f0;
+        margin: 2rem;
+        display: inline-flex;
+        flex-direction: column;
+        transition: all 0.3s ease;
+      }
+      .progress-ring {
+        transform: rotate(-90deg);
+      }
+      .progress-ring-circle {
+        transition: stroke-dashoffset 0.35s;
+        transform-origin: 50% 50%;
+      }
+      .theme-toggle, .language-toggle {
+        transition: all 0.3s ease;
+      }
+      .theme-toggle:hover, .language-toggle:hover {
+        transform: scale(1.1);
+      }
+      /* Dark mode styles */
+      .dark-mode {
+        background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+        color: white;
+      }
+      .dark-mode .bg-white {
+        background: rgba(255, 255, 255, 0.1) !important;
+        backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      .dark-mode .text-gray-800 {
+        color: white !important;
+      }
+      .dark-mode .text-gray-600 {
+        color: rgba(255, 255, 255, 0.7) !important;
+      }
+      .dark-mode .text-gray-500 {
+        color: rgba(255, 255, 255, 0.5) !important;
+      }
+      .dark-mode .bg-gray-200 {
+        background: rgba(255, 255, 255, 0.2) !important;
+      }
+      .dark-mode .border-gray-100 {
+        border-color: rgba(255, 255, 255, 0.1) !important;
+      }
+      .floating-particles {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        pointer-events: none;
+      }
+      .particle {
+        position: absolute;
+        width: 4px;
+        height: 4px;
+        background: rgba(59, 130, 246, 0.3);
+        border-radius: 50%;
+        animation: float-particle 8s infinite linear;
+      }
+      @keyframes float-particle {
+        0% {
+          transform: translateY(100vh) translateX(0);
+          opacity: 0;
+        }
+        10% {
+          opacity: 1;
+        }
+        90% {
+          opacity: 1;
+        }
+        100% {
+          transform: translateY(-10vh) translateX(100px);
+          opacity: 0;
+        }
+      }
+      .meal-item {
+        transition: all 0.3s ease;
+      }
+      .meal-item:hover {
+        transform: translateX(5px);
+      }
+      .flag-icon {
+        width: 16px;
+        height: 12px;
+        border-radius: 2px;
+        display: inline-block;
+        margin-right: 6px;
+      }
+      .flag-us {
+        background: linear-gradient(to bottom, #b22234 0%, #b22234 7.69%, #ffffff 7.69%, #ffffff 15.38%, #b22234 15.38%);
+      }
+      .flag-so {
+        background: linear-gradient(to bottom, #4189dd 0%, #4189dd 33.33%, #ffffff 33.33%, #ffffff 66.66%, #4189dd 66.66%);
+        position: relative;
+      }
+      .flag-so::after {
+        content: '★';
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        color: white;
+        font-size: 6px;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-100 flex justify-center items-center min-h-screen">
+    <div class="dashboard-phone-frame bg-white" id="phoneFrame">
+      <!-- Floating Particles (Dark Mode) -->
+      <div class="floating-particles hidden" id="particles">
+        <div class="particle" style="left: 10%; animation-delay: 0s;"></div>
+        <div class="particle" style="left: 20%; animation-delay: 2s;"></div>
+        <div class="particle" style="left: 30%; animation-delay: 4s;"></div>
+        <div class="particle" style="left: 40%; animation-delay: 6s;"></div>
+        <div class="particle" style="left: 50%; animation-delay: 1s;"></div>
+        <div class="particle" style="left: 60%; animation-delay: 3s;"></div>
+        <div class="particle" style="left: 70%; animation-delay: 5s;"></div>
+        <div class="particle" style="left: 80%; animation-delay: 7s;"></div>
+      </div>
+
+      <!-- Header -->
+      <div class="bg-gradient-to-r from-blue-50 to-purple-50 px-6 py-8" id="headerBg">
+        <div class="flex justify-between items-center mb-6">
+          <div>
+            <h1 class="text-2xl font-bold text-gray-800" id="greeting" data-translate="goodMorning">Good Morning</h1>
+            <p class="text-gray-600" id="userName" data-translate="readyToTrack">Ready to track your nutrition?</p>
+          </div>
+          <div class="flex items-center space-x-2">
+            <!-- Language Toggle -->
+            <button onclick="toggleLanguage()" class="language-toggle w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-sm">
+              <div class="flag-icon flag-us" id="flagIcon"></div>
+            </button>
+            <!-- Theme Toggle -->
+            <button class="theme-toggle w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-sm" onclick="toggleTheme()">
+              <i class="fas fa-moon text-gray-600 text-lg" id="themeIcon"></i>
+            </button>
+            <!-- Profile -->
+            <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-sm cursor-pointer" onclick="showProfile()">
+              <i class="fas fa-user text-gray-600 text-lg"></i>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Daily Calorie Progress -->
+        <div class="bg-white rounded-3xl p-6 shadow-sm">
+          <div class="flex items-center justify-between mb-4">
+            <h2 class="text-lg font-semibold text-gray-800" data-translate="dailyCalories">Daily Calories</h2>
+            <span class="text-sm text-gray-500" id="calorieProgress">1,847 / 2,200</span>
+          </div>
+          <div class="flex items-center justify-center mb-4 relative">
+            <svg class="progress-ring w-32 h-32" viewBox="0 0 120 120">
+              <circle cx="60" cy="60" r="50" stroke="#f3f4f6" stroke-width="8" fill="none"/>
+              <circle cx="60" cy="60" r="50" stroke="#3b82f6" stroke-width="8" fill="none"
+                      stroke-dasharray="314" stroke-dashoffset="62" class="progress-ring-circle" id="progressCircle"/>
+            </svg>
+            <div class="absolute text-center">
+              <div class="text-2xl font-bold text-gray-800" id="caloriesLeft">353</div>
+              <div class="text-sm text-gray-500" data-translate="left">left</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Macronutrients -->
+      <div class="px-6 py-4">
+        <div class="flex items-center justify-between mb-4">
+          <h3 class="text-lg font-semibold text-gray-800" data-translate="macronutrients">Macronutrients</h3>
+          <div class="flex items-center space-x-2">
+            <div class="w-2 h-2 bg-blue-500 rounded-full animate-pulse"></div>
+            <span class="text-xs text-gray-500" data-translate="liveTracking">Live tracking</span>
+          </div>
+        </div>
+        <div class="grid grid-cols-3 gap-4 mb-6">
+          <div class="bg-white rounded-2xl p-4 shadow-sm transform hover:scale-105 transition-transform cursor-pointer" onclick="showMacroDetails('carbs')">
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-sm text-gray-600" data-translate="carbs">Carbs</span>
+              <i class="fas fa-bread-slice text-orange-500 text-sm"></i>
+            </div>
+            <div class="text-xl font-bold text-gray-800" id="carbsAmount">142g</div>
+            <div class="w-full bg-gray-200 rounded-full h-2 mt-2">
+              <div class="bg-gradient-to-r from-orange-400 to-orange-600 h-2 rounded-full transition-all duration-500" style="width: 65%" id="carbsProgress"></div>
+            </div>
+          </div>
+          
+          <div class="bg-white rounded-2xl p-4 shadow-sm transform hover:scale-105 transition-transform cursor-pointer" onclick="showMacroDetails('protein')">
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-sm text-gray-600" data-translate="protein">Protein</span>
+              <i class="fas fa-drumstick-bite text-red-500 text-sm"></i>
+            </div>
+            <div class="text-xl font-bold text-gray-800" id="proteinAmount">89g</div>
+            <div class="w-full bg-gray-200 rounded-full h-2 mt-2">
+              <div class="bg-gradient-to-r from-red-400 to-red-600 h-2 rounded-full transition-all duration-500" style="width: 78%" id="proteinProgress"></div>
+            </div>
+          </div>
+          
+          <div class="bg-white rounded-2xl p-4 shadow-sm transform hover:scale-105 transition-transform cursor-pointer" onclick="showMacroDetails('fat')">
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-sm text-gray-600" data-translate="fat">Fat</span>
+              <i class="fas fa-cheese text-yellow-500 text-sm"></i>
+            </div>
+            <div class="text-xl font-bold text-gray-800" id="fatAmount">52g</div>
+            <div class="w-full bg-gray-200 rounded-full h-2 mt-2">
+              <div class="bg-gradient-to-r from-yellow-400 to-yellow-600 h-2 rounded-full transition-all duration-500" style="width: 45%" id="fatProgress"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- AI Insights -->
+        <div class="bg-gradient-to-r from-purple-100 to-blue-100 rounded-2xl p-4 mb-6 cursor-pointer" onclick="showAIInsights()">
+          <div class="flex items-center mb-2">
+            <i class="fas fa-brain text-purple-600 text-lg mr-2"></i>
+            <span class="font-semibold text-gray-800" data-translate="aiInsight">AI Insight</span>
+            <i class="fas fa-chevron-right text-gray-400 text-sm ml-auto"></i>
+          </div>
+          <p class="text-sm text-gray-700" id="aiInsight" data-translate="insightText">You're 23% ahead of your protein goal today! Consider adding more carbs for balanced energy.</p>
+        </div>
+
+        <!-- Quick Actions -->
+        <div class="grid grid-cols-2 gap-3 mb-6">
+          <button onclick="navigateToCamera()" class="bg-blue-100 text-blue-800 rounded-2xl p-4 flex items-center justify-center space-x-2 font-medium hover:bg-blue-200 transition-colors">
+            <i class="fas fa-camera text-lg"></i>
+            <span data-translate="scanFood">Scan Food</span>
+          </button>
+          <button onclick="navigateToFoodEntry()" class="bg-green-100 text-green-800 rounded-2xl p-4 flex items-center justify-center space-x-2 font-medium hover:bg-green-200 transition-colors">
+            <i class="fas fa-plus text-lg"></i>
+            <span data-translate="addMeal">Add Meal</span>
+          </button>
+        </div>
+
+        <!-- Recent Meals -->
+        <div class="flex items-center justify-between mb-4">
+          <h3 class="text-lg font-semibold text-gray-800" data-translate="recentMeals">Recent Meals</h3>
+          <button onclick="showAllMeals()" class="text-blue-600 text-sm font-medium" data-translate="viewAll">View All</button>
+        </div>
+        <div class="space-y-3 mb-20" id="recentMeals">
+          <div class="meal-item bg-white rounded-2xl p-4 shadow-sm flex items-center cursor-pointer" onclick="editMeal('breakfast')">
+            <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mr-4">
+              <i class="fas fa-coffee text-blue-600 text-lg"></i>
+            </div>
+            <div class="flex-1">
+              <h4 class="font-semibold text-gray-800" data-translate="breakfast">Breakfast</h4>
+              <p class="text-sm text-gray-500" data-translate="oatmealBerries">Oatmeal with berries</p>
+            </div>
+            <div class="text-right">
+              <div class="font-semibold text-gray-800">320 cal</div>
+              <div class="text-sm text-gray-500">8:30 AM</div>
+            </div>
+            <i class="fas fa-chevron-right text-gray-400 text-sm ml-3"></i>
+          </div>
+          
+          <div class="meal-item bg-white rounded-2xl p-4 shadow-sm flex items-center cursor-pointer" onclick="editMeal('snack')">
+            <div class="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center mr-4">
+              <i class="fas fa-apple-alt text-green-600 text-lg"></i>
+            </div>
+            <div class="flex-1">
+              <h4 class="font-semibold text-gray-800" data-translate="snack">Snack</h4>
+              <p class="text-sm text-gray-500" data-translate="greekYogurt">Greek yogurt</p>
+            </div>
+            <div class="text-right">
+              <div class="font-semibold text-gray-800">150 cal</div>
+              <div class="text-sm text-gray-500">10:15 AM</div>
+            </div>
+            <i class="fas fa-chevron-right text-gray-400 text-sm ml-3"></i>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom Navigation -->
+      <div class="absolute bottom-0 left-0 right-0 bg-white border-t border-gray-100">
+        <div class="flex justify-around py-3">
+          <div class="flex flex-col items-center py-2 cursor-pointer" onclick="navigateTo('dashboard')">
+            <i class="fas fa-home text-blue-600 text-xl mb-1"></i>
+            <span class="text-xs text-blue-600 font-medium" data-translate="home">Home</span>
+          </div>
+          <div class="flex flex-col items-center py-2 cursor-pointer" onclick="navigateTo('camera-scan')">
+            <i class="fas fa-camera text-gray-400 text-xl mb-1"></i>
+            <span class="text-xs text-gray-400" data-translate="scan">Scan</span>
+          </div>
+          <div class="flex flex-col items-center py-2 cursor-pointer" onclick="navigateTo('food-entry')">
+            <i class="fas fa-plus-circle text-gray-400 text-xl mb-1"></i>
+            <span class="text-xs text-gray-400" data-translate="add">Add</span>
+          </div>
+          <div class="flex flex-col items-center py-2 cursor-pointer" onclick="navigateTo('weight-tracking')">
+            <i class="fas fa-chart-line text-gray-400 text-xl mb-1"></i>
+            <span class="text-xs text-gray-400" data-translate="progress">Progress</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Language translations
+      const translations = {
+        en: {
+          goodMorning: "Good Morning",
+          goodAfternoon: "Good Afternoon", 
+          goodEvening: "Good Evening",
+          readyToTrack: "Ready to track your nutrition?",
+          welcomeBack: "Welcome back",
+          dailyCalories: "Daily Calories",
+          left: "left",
+          macronutrients: "Macronutrients",
+          liveTracking: "Live tracking",
+          carbs: "Carbs",
+          protein: "Protein",
+          fat: "Fat",
+          aiInsight: "AI Insight",
+          insightText: "You're 23% ahead of your protein goal today! Consider adding more carbs for balanced energy.",
+          scanFood: "Scan Food",
+          addMeal: "Add Meal",
+          recentMeals: "Recent Meals",
+          viewAll: "View All",
+          breakfast: "Breakfast",
+          oatmealBerries: "Oatmeal with berries",
+          snack: "Snack",
+          greekYogurt: "Greek yogurt",
+          home: "Home",
+          scan: "Scan",
+          add: "Add",
+          progress: "Progress",
+          profileSoon: "Profile feature coming soon!",
+          aiUpdated: "AI insight updated!",
+          editingMeal: "Editing meal...",
+          showingMeals: "Showing all meals...",
+          languageChanged: "Language changed to English"
+        },
+        so: {
+          goodMorning: "Subax Wanaagsan",
+          goodAfternoon: "Galab Wanaagsan",
+          goodEvening: "Fiid Wanaagsan", 
+          readyToTrack: "Ma diyaar u tahay inaad la socoto nafaqadaada?",
+          welcomeBack: "Ku soo dhawoow",
+          dailyCalories: "Kaloriga Maalinta",
+          left: "haray",
+          macronutrients: "Nafaqada Waaweyn",
+          liveTracking: "La socoshada tooska ah",
+          carbs: "Karboohaydreet",
+          protein: "Borotiinka",
+          fat: "Dufanka",
+          aiInsight: "Fikradda AI",
+          insightText: "Waxaad ka horumarsan tahay 23% yoolkaaga borotiinka maanta! Ka fiirso inaad kordhiso karboohaydreetka si aad u hesho tamar dheelitiran.",
+          scanFood: "Sawir Cuntada",
+          addMeal: "Ku Dar Cunto",
+          recentMeals: "Cuntadii Dhowaan",
+          viewAll: "Dhammaantood Arag",
+          breakfast: "Quraac",
+          oatmealBerries: "Oatmeal iyo miraha",
+          snack: "Cunto Yar",
+          greekYogurt: "Yogurt Giriig",
+          home: "Guriga",
+          scan: "Sawir",
+          add: "Ku Dar",
+          progress: "Horumar",
+          profileSoon: "Astaanta waa iman doonta dhowaan!",
+          aiUpdated: "Fikradda AI waa la cusboonaysiiyay!",
+          editingMeal: "Waa la tafatiraya cuntada...",
+          showingMeals: "Waa la tusinaya dhammaan cuntadaha...",
+          languageChanged: "Luqadda waxaa loo beddelay Soomaali"
+        }
+      };
+
+      let isDarkMode = localStorage.getItem('nutrimate_dark_mode') === 'true';
+      let currentLanguage = localStorage.getItem('nutrimate_language') || 'en';
+      let userData = JSON.parse(localStorage.getItem('nutrimate_user')) || {};
+      let nutritionData = JSON.parse(localStorage.getItem('nutrimate_nutrition')) || {
+        calories: { consumed: 1847, target: 2200 },
+        carbs: { consumed: 142, target: 220 },
+        protein: { consumed: 89, target: 115 },
+        fat: { consumed: 52, target: 115 }
+      };
+
+      // Initialize app
+      document.addEventListener('DOMContentLoaded', function() {
+        initializeApp();
+        setLanguage(currentLanguage);
+        updateGreeting();
+        updateNutritionDisplay();
+        if (isDarkMode) {
+          enableDarkMode();
+        }
+      });
+
+      function initializeApp() {
+        // Check if user is logged in
+        if (!userData.name) {
+          window.location.href = 'index.html';
+          return;
+        }
+        
+        // Update user name
+        const welcomeText = currentLanguage === 'en' ? `Welcome back, ${userData.name}!` : `Ku soo dhawoow, ${userData.name}!`;
+        document.getElementById('userName').textContent = welcomeText;
+      }
+
+      function toggleLanguage() {
+        currentLanguage = currentLanguage === 'en' ? 'so' : 'en';
+        setLanguage(currentLanguage);
+        localStorage.setItem('nutrimate_language', currentLanguage);
+        showNotification(translations[currentLanguage].languageChanged, 'success');
+        
+        // Update user name with new language
+        const welcomeText = currentLanguage === 'en' ? `Welcome back, ${userData.name}!` : `Ku soo dhawoow, ${userData.name}!`;
+        document.getElementById('userName').textContent = welcomeText;
+      }
+
+      function setLanguage(lang) {
+        const flagIcon = document.getElementById('flagIcon');
+        
+        // Update flag
+        if (lang === 'so') {
+          flagIcon.className = 'flag-icon flag-so';
+        } else {
+          flagIcon.className = 'flag-icon flag-us';
+        }
+
+        // Update all translatable elements
+        const elements = document.querySelectorAll('[data-translate]');
+        elements.forEach(element => {
+          const key = element.getAttribute('data-translate');
+          if (translations[lang] && translations[lang][key]) {
+            element.textContent = translations[lang][key];
+          }
+        });
+
+        // Update document language
+        document.documentElement.lang = lang;
+      }
+
+      function updateGreeting() {
+        const hour = new Date().getHours();
+        const greetingElement = document.getElementById('greeting');
+        
+        let greetingKey;
+        if (hour < 12) {
+          greetingKey = 'goodMorning';
+        } else if (hour < 17) {
+          greetingKey = 'goodAfternoon';
+        } else {
+          greetingKey = 'goodEvening';
+        }
+        
+        greetingElement.textContent = translations[currentLanguage][greetingKey];
+      }
+
+      function updateNutritionDisplay() {
+        // Update calories
+        const caloriesLeft = nutritionData.calories.target - nutritionData.calories.consumed;
+        document.getElementById('caloriesLeft').textContent = caloriesLeft;
+        document.getElementById('calorieProgress').textContent = `${nutritionData.calories.consumed} / ${nutritionData.calories.target}`;
+        
+        // Update progress ring
+        const progressPercentage = (nutritionData.calories.consumed / nutritionData.calories.target) * 100;
+        const circumference = 314;
+        const offset = circumference - (progressPercentage / 100) * circumference;
+        document.getElementById('progressCircle').style.strokeDashoffset = offset;
+        
+        // Update macros
+        document.getElementById('carbsAmount').textContent = `${nutritionData.carbs.consumed}g`;
+        document.getElementById('proteinAmount').textContent = `${nutritionData.protein.consumed}g`;
+        document.getElementById('fatAmount').textContent = `${nutritionData.fat.consumed}g`;
+        
+        // Update macro progress bars
+        const carbsPercent = (nutritionData.carbs.consumed / nutritionData.carbs.target) * 100;
+        const proteinPercent = (nutritionData.protein.consumed / nutritionData.protein.target) * 100;
+        const fatPercent = (nutritionData.fat.consumed / nutritionData.fat.target) * 100;
+        
+        document.getElementById('carbsProgress').style.width = `${Math.min(carbsPercent, 100)}%`;
+        document.getElementById('proteinProgress').style.width = `${Math.min(proteinPercent, 100)}%`;
+        document.getElementById('fatProgress').style.width = `${Math.min(fatPercent, 100)}%`;
+      }
+
+      function toggleTheme() {
+        isDarkMode = !isDarkMode;
+        localStorage.setItem('nutrimate_dark_mode', isDarkMode);
+        
+        if (isDarkMode) {
+          enableDarkMode();
+        } else {
+          disableDarkMode();
+        }
+      }
+
+      function enableDarkMode() {
+        const phoneFrame = document.getElementById('phoneFrame');
+        const headerBg = document.getElementById('headerBg');
+        const themeIcon = document.getElementById('themeIcon');
+        const particles = document.getElementById('particles');
+        
+        phoneFrame.classList.add('dark-mode');
+        headerBg.className = 'bg-gradient-to-r from-gray-800 to-gray-900 px-6 py-8';
+        themeIcon.className = 'fas fa-sun text-yellow-400 text-lg';
+        particles.classList.remove('hidden');
+        
+        const progressRing = document.querySelector('.progress-ring-circle');
+        progressRing.style.filter = 'drop-shadow(0 0 10px #3b82f6)';
+      }
+
+      function disableDarkMode() {
+        const phoneFrame = document.getElementById('phoneFrame');
+        const headerBg = document.getElementById('headerBg');
+        const themeIcon = document.getElementById('themeIcon');
+        const particles = document.getElementById('particles');
+        
+        phoneFrame.classList.remove('dark-mode');
+        headerBg.className = 'bg-gradient-to-r from-blue-50 to-purple-50 px-6 py-8';
+        themeIcon.className = 'fas fa-moon text-gray-600 text-lg';
+        particles.classList.add('hidden');
+        
+        const progressRing = document.querySelector('.progress-ring-circle');
+        progressRing.style.filter = 'none';
+      }
+
+      // Navigation functions
+      function navigateTo(screen) {
+        window.location.href = `${screen}.html`;
+      }
+
+      function navigateToCamera() {
+        navigateTo('camera-scan');
+      }
+
+      function navigateToFoodEntry() {
+        navigateTo('food-entry');
+      }
+
+      function showProfile() {
+        showNotification(translations[currentLanguage].profileSoon, 'info');
+      }
+
+      function showMacroDetails(macro) {
+        const macroData = nutritionData[macro];
+        const percentage = Math.round((macroData.consumed / macroData.target) * 100);
+        const macroName = translations[currentLanguage][macro];
+        showNotification(`${macroName}: ${macroData.consumed}g / ${macroData.target}g (${percentage}%)`, 'info');
+      }
+
+      function showAIInsights() {
+        const insights = {
+          en: [
+            "You're doing great with protein intake! Try adding more vegetables for fiber.",
+            "Your calorie distribution is well balanced today. Keep it up!",
+            "Consider having a healthy snack to reach your calorie goal.",
+            "You're ahead of your protein target. Great job on muscle building!",
+            "Your carb intake is perfect for your activity level today."
+          ],
+          so: [
+            "Waxaad si fiican u qaadanaysaa borotiinka! Isku day inaad kordhiso khudaarta si aad u hesho fiber.",
+            "Qaybinta kaloriga maanta waa dheelitiran. Sii wad!",
+            "Ka fiirso inaad cunto caafimaad leh si aad u gaadho yoolkaaga kaloriga.",
+            "Waxaad ka horumarsan tahay yoolkaaga borotiinka. Shaqo fiican dhismaha muruqyada!",
+            "Qaadashada karboohaydreetkaagu waa ku habboon tahay heerka waxqabadkaaga maanta."
+          ]
+        };
+        
+        const randomInsight = insights[currentLanguage][Math.floor(Math.random() * insights[currentLanguage].length)];
+        document.getElementById('aiInsight').textContent = randomInsight;
+        showNotification(translations[currentLanguage].aiUpdated, 'success');
+      }
+
+      function editMeal(mealType) {
+        showNotification(translations[currentLanguage].editingMeal, 'info');
+        setTimeout(() => {
+          navigateTo('food-entry');
+        }, 1000);
+      }
+
+      function showAllMeals() {
+        showNotification(translations[currentLanguage].showingMeals, 'info');
+      }
+
+      function showNotification(message, type) {
+        const notification = document.createElement('div');
+        const colors = {
+          success: 'bg-green-500',
+          error: 'bg-red-500',
+          info: 'bg-blue-500',
+          warning: 'bg-yellow-500'
+        };
+        
+        notification.className = `fixed top-4 left-1/2 transform -translate-x-1/2 z-50 px-6 py-3 rounded-xl text-white font-medium ${colors[type] || colors.info}`;
+        notification.textContent = message;
+        
+        document.body.appendChild(notification);
+        
+        setTimeout(() => {
+          notification.remove();
+        }, 3000);
+      }
+
+      // Auto-update nutrition data periodically
+      setInterval(() => {
+        // Simulate real-time updates
+        if (Math.random() > 0.95) {
+          nutritionData.calories.consumed += Math.floor(Math.random() * 50);
+          localStorage.setItem('nutrimate_nutrition', JSON.stringify(nutritionData));
+          updateNutritionDisplay();
+        }
+      }, 30000);
+    </script>
+  </body>
+</html>
+
+                    </div>
+<div class="screen-item">
+                      <h3>Camera Scan</h3>
+                      
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NutriMate - AI Food Scanner</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      .camera-scan-phone-frame {
+        width: 375px;
+        min-height: 812px;
+        background: black;
+        border-radius: 40px;
+        overflow: hidden;
+        position: relative;
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+          0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        border: 1px solid #e2e8f0;
+        margin: 2rem;
+        display: inline-flex;
+        flex-direction: column;
+      }
+      .scan-overlay {
+        background: linear-gradient(45deg, transparent 30%, rgba(59, 130, 246, 0.3) 50%, transparent 70%);
+        animation: scan 2s infinite;
+      }
+      @keyframes scan {
+        0% { transform: translateX(-100%); }
+        100% { transform: translateX(100%); }
+      }
+      .viewfinder {
+        border: 3px solid #3b82f6;
+        border-radius: 20px;
+        position: relative;
+        box-shadow: 0 0 30px rgba(59, 130, 246, 0.5);
+        transition: all 0.3s ease;
+      }
+      .viewfinder.scanning {
+        border-color: #10b981;
+        box-shadow: 0 0 30px rgba(16, 185, 129, 0.5);
+      }
+      .viewfinder::before,
+      .viewfinder::after {
+        content: '';
+        position: absolute;
+        width: 25px;
+        height: 25px;
+        border: 4px solid #60a5fa;
+        transition: all 0.3s ease;
+      }
+      .viewfinder::before {
+        top: -4px;
+        left: -4px;
+        border-right: none;
+        border-bottom: none;
+        border-radius: 20px 0 0 0;
+      }
+      .viewfinder::after {
+        bottom: -4px;
+        right: -4px;
+        border-left: none;
+        border-top: none;
+        border-radius: 0 0 20px 0;
+      }
+      .viewfinder.scanning::before,
+      .viewfinder.scanning::after {
+        border-color: #10b981;
+      }
+      .ai-pulse {
+        animation: pulse 2s infinite;
+      }
+      @keyframes pulse {
+        0%, 100% { opacity: 1; transform: scale(1); }
+        50% { opacity: 0.7; transform: scale(1.05); }
+      }
+      .holographic-ui {
+        background: rgba(59, 130, 246, 0.1);
+        backdrop-filter: blur(20px);
+        border: 1px solid rgba(59, 130, 246, 0.3);
+        transition: all 0.3s ease;
+      }
+      .holographic-ui:hover {
+        background: rgba(59, 130, 246, 0.2);
+        transform: translateY(-2px);
+      }
+      .scan-particles {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+      }
+      .particle {
+        position: absolute;
+        width: 2px;
+        height: 2px;
+        background: #3b82f6;
+        border-radius: 50%;
+        animation: float-scan 3s infinite linear;
+      }
+      @keyframes float-scan {
+        0% { transform: translateY(0) translateX(0); opacity: 0; }
+        50% { opacity: 1; }
+        100% { transform: translateY(-50px) translateX(20px); opacity: 0; }
+      }
+      .capture-btn {
+        transition: all 0.3s ease;
+      }
+      .capture-btn:active {
+        transform: scale(0.95);
+      }
+      .flash-effect {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: white;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.1s ease;
+      }
+      .flash-effect.active {
+        opacity: 0.8;
+      }
+      .language-toggle {
+        transition: all 0.3s ease;
+      }
+      .language-toggle:hover {
+        transform: scale(1.05);
+      }
+      .flag-icon {
+        width: 16px;
+        height: 12px;
+        border-radius: 2px;
+        display: inline-block;
+        margin-right: 6px;
+      }
+      .flag-us {
+        background: linear-gradient(to bottom, #b22234 0%, #b22234 7.69%, #ffffff 7.69%, #ffffff 15.38%, #b22234 15.38%);
+      }
+      .flag-so {
+        background: linear-gradient(to bottom, #4189dd 0%, #4189dd 33.33%, #ffffff 33.33%, #ffffff 66.66%, #4189dd 66.66%);
+        position: relative;
+      }
+      .flag-so::after {
+        content: '★';
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        color: white;
+        font-size: 6px;
+      }
+      .modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0,0,0,0.8);
+        z-index: 1000;
+        backdrop-filter: blur(5px);
+      }
+      .modal.active {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .modal-content {
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 20px;
+        padding: 24px;
+        width: 320px;
+        max-width: 90vw;
+        color: white;
+      }
+      .recent-item {
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 12px;
+        padding: 12px;
+        margin-bottom: 8px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+      .recent-item:hover {
+        background: rgba(255, 255, 255, 0.2);
+        transform: translateX(5px);
+      }
+      .barcode-scanner {
+        position: relative;
+        height: 200px;
+        background: rgba(0,0,0,0.5);
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 16px 0;
+      }
+      .barcode-line {
+        width: 80%;
+        height: 2px;
+        background: #10b981;
+        animation: barcode-scan 2s infinite;
+      }
+      @keyframes barcode-scan {
+        0%, 100% { transform: translateY(-50px); opacity: 0; }
+        50% { transform: translateY(0); opacity: 1; }
+      }
+      .voice-visualizer {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100px;
+        margin: 16px 0;
+      }
+      .voice-bar {
+        width: 4px;
+        background: #3b82f6;
+        margin: 0 2px;
+        border-radius: 2px;
+        animation: voice-wave 1s infinite ease-in-out;
+      }
+      .voice-bar:nth-child(2) { animation-delay: 0.1s; }
+      .voice-bar:nth-child(3) { animation-delay: 0.2s; }
+      .voice-bar:nth-child(4) { animation-delay: 0.3s; }
+      .voice-bar:nth-child(5) { animation-delay: 0.4s; }
+      @keyframes voice-wave {
+        0%, 100% { height: 20px; }
+        50% { height: 60px; }
+      }
+    </style>
+  </head>
+  <body class="bg-gray-100 flex justify-center items-center min-h-screen">
+    <div class="camera-scan-phone-frame">
+      <!-- Flash Effect -->
+      <div class="flash-effect" id="flashEffect"></div>
+      
+      <!-- Camera View Background -->
+      <div class="flex-1 relative" style="background-image: url('https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=400&h=800&fit=crop'); background-size: cover; background-position: center;">
+        
+        <!-- Scan Particles -->
+        <div class="scan-particles" id="scanParticles">
+          <div class="particle" style="left: 30%; top: 40%; animation-delay: 0s;"></div>
+          <div class="particle" style="left: 60%; top: 50%; animation-delay: 0.5s;"></div>
+          <div class="particle" style="left: 45%; top: 35%; animation-delay: 1s;"></div>
+          <div class="particle" style="left: 70%; top: 45%; animation-delay: 1.5s;"></div>
+        </div>
+
+        <!-- Top Controls -->
+        <div class="absolute top-0 left-0 right-0 bg-gradient-to-b from-black/70 to-transparent p-6">
+          <div class="flex justify-between items-center">
+            <button onclick="goBack()" class="w-12 h-12 holographic-ui rounded-full flex items-center justify-center">
+              <i class="fas fa-arrow-left text-white text-lg"></i>
+            </button>
+            <div class="text-center">
+              <h1 class="text-white font-bold text-lg" data-translate="aiScanner">AI Food Scanner</h1>
+              <div class="flex items-center justify-center mt-1">
+                <div class="w-2 h-2 bg-green-400 rounded-full mr-2 ai-pulse" id="aiStatus"></div>
+                <span class="text-green-400 text-sm font-medium" id="aiStatusText" data-translate="aiActive">AI Active</span>
+              </div>
+            </div>
+            <div class="flex space-x-2">
+              <!-- Language Toggle -->
+              <button onclick="toggleLanguage()" class="language-toggle w-10 h-10 holographic-ui rounded-full flex items-center justify-center">
+                <div class="flag-icon flag-us" id="flagIcon"></div>
+              </button>
+              <!-- Flash Toggle -->
+              <button onclick="toggleFlash()" class="w-10 h-10 holographic-ui rounded-full flex items-center justify-center" id="flashBtn">
+                <i class="fas fa-flash text-white text-lg" id="flashIcon"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- AI Detection Overlay -->
+        <div class="absolute top-32 left-6 right-6" id="detectionOverlay">
+          <div class="holographic-ui rounded-2xl p-4">
+            <div class="flex items-center justify-between">
+              <div class="flex items-center">
+                <i class="fas fa-brain text-blue-400 text-lg mr-2 ai-pulse"></i>
+                <span class="text-white font-medium" id="analysisText" data-translate="aiAnalyzing">AI Analyzing...</span>
+              </div>
+              <div class="text-blue-400 text-sm" id="confidenceText">87% <span data-translate="confidence">confidence</span></div>
+            </div>
+            <div class="mt-2 text-white/80 text-sm" id="instructionText" data-translate="pointCamera">Point camera at food item for instant nutrition analysis</div>
+          </div>
+        </div>
+
+        <!-- Viewfinder -->
+        <div class="absolute inset-0 flex items-center justify-center">
+          <div class="viewfinder w-72 h-72 relative overflow-hidden" id="viewfinder">
+            <div class="scan-overlay absolute inset-0" id="scanOverlay"></div>
+            <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+              <div class="w-10 h-10 border-2 border-white rounded-full flex items-center justify-center ai-pulse">
+                <div class="w-3 h-3 bg-blue-400 rounded-full" id="centerDot"></div>
+              </div>
+            </div>
+            
+            <!-- Corner indicators -->
+            <div class="absolute top-4 left-4 w-6 h-6 border-l-2 border-t-2 border-blue-400"></div>
+            <div class="absolute top-4 right-4 w-6 h-6 border-r-2 border-t-2 border-blue-400"></div>
+            <div class="absolute bottom-4 left-4 w-6 h-6 border-l-2 border-b-2 border-blue-400"></div>
+            <div class="absolute bottom-4 right-4 w-6 h-6 border-r-2 border-b-2 border-blue-400"></div>
+          </div>
+        </div>
+
+        <!-- Food Recognition Results -->
+        <div class="absolute bottom-40 left-6 right-6" id="recognitionResults">
+          <div class="holographic-ui rounded-2xl p-4 transform translate-y-0 transition-transform">
+            <div class="flex items-center justify-between mb-3">
+              <div class="flex items-center">
+                <i class="fas fa-check-circle text-green-400 text-lg mr-2" id="detectionIcon"></i>
+                <span class="text-white font-semibold" id="detectionStatus" data-translate="foodDetected">Food Detected</span>
+              </div>
+              <span class="text-green-400 text-sm" id="readyStatus" data-translate="readyToScan">Ready to scan</span>
+            </div>
+            <div class="grid grid-cols-2 gap-4 text-sm">
+              <div>
+                <span class="text-white/70" data-translate="detected">Detected:</span>
+                <div class="text-white font-medium" id="detectedFood">Mixed Salad</div>
+              </div>
+              <div>
+                <span class="text-white/70" data-translate="estCalories">Est. Calories:</span>
+                <div class="text-white font-medium" id="estimatedCalories">~180 kcal</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bottom Controls -->
+        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-6">
+          <div class="flex justify-center items-center space-x-8 mb-4">
+            <!-- Gallery -->
+            <button onclick="openGallery()" class="w-14 h-14 holographic-ui rounded-2xl flex items-center justify-center">
+              <i class="fas fa-images text-white text-lg"></i>
+            </button>
+            
+            <!-- Capture Button -->
+            <button onclick="captureFood()" class="capture-btn w-24 h-24 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full flex items-center justify-center shadow-2xl relative ai-pulse" id="captureBtn">
+              <div class="w-20 h-20 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm">
+                <i class="fas fa-camera text-white text-2xl" id="captureIcon"></i>
+              </div>
+              <div class="absolute -inset-2 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full opacity-30 animate-ping" id="captureRing"></div>
+            </button>
+            
+            <!-- Manual Entry -->
+            <button onclick="manualEntry()" class="w-14 h-14 holographic-ui rounded-2xl flex items-center justify-center">
+              <i class="fas fa-keyboard text-white text-lg"></i>
+            </button>
+          </div>
+
+          <!-- Quick Actions -->
+          <div class="flex justify-center space-x-4">
+            <button onclick="showRecent()" class="holographic-ui rounded-xl px-4 py-2 flex items-center space-x-2">
+              <i class="fas fa-history text-blue-400 text-sm"></i>
+              <span class="text-white text-sm" data-translate="recent">Recent</span>
+            </button>
+            <button onclick="scanBarcode()" class="holographic-ui rounded-xl px-4 py-2 flex items-center space-x-2">
+              <i class="fas fa-barcode text-blue-400 text-sm"></i>
+              <span class="text-white text-sm" data-translate="barcode">Barcode</span>
+            </button>
+            <button onclick="voiceInput()" class="holographic-ui rounded-xl px-4 py-2 flex items-center space-x-2">
+              <i class="fas fa-microphone text-blue-400 text-sm"></i>
+              <span class="text-white text-sm" data-translate="voice">Voice</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Recent Scans Modal -->
+      <div class="modal" id="recentModal">
+        <div class="modal-content">
+          <div class="flex justify-between items-center mb-4">
+            <h2 class="text-xl font-bold" data-translate="recentScans">Recent Scans</h2>
+            <button onclick="closeRecentModal()" class="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center">
+              <i class="fas fa-times text-white"></i>
+            </button>
+          </div>
+          <div id="recentList">
+            <!-- Recent items will be populated here -->
+          </div>
+        </div>
+      </div>
+
+      <!-- Barcode Scanner Modal -->
+      <div class="modal" id="barcodeModal">
+        <div class="modal-content">
+          <div class="flex justify-between items-center mb-4">
+            <h2 class="text-xl font-bold" data-translate="barcodeScanner">Barcode Scanner</h2>
+            <button onclick="closeBarcodeModal()" class="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center">
+              <i class="fas fa-times text-white"></i>
+            </button>
+          </div>
+          <div class="barcode-scanner">
+            <div class="barcode-line"></div>
+            <div class="absolute inset-0 flex items-center justify-center">
+              <i class="fas fa-barcode text-white text-4xl opacity-50"></i>
+            </div>
+          </div>
+          <p class="text-center text-white/80 text-sm" data-translate="alignBarcode">Align barcode within the frame</p>
+          <div class="flex space-x-3 mt-4">
+            <button onclick="simulateBarcodeSuccess()" class="flex-1 bg-green-600 text-white rounded-xl py-3 font-semibold" data-translate="simulate">Simulate Scan</button>
+            <button onclick="closeBarcodeModal()" class="flex-1 bg-white/20 text-white rounded-xl py-3 font-semibold" data-translate="cancel">Cancel</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Voice Input Modal -->
+      <div class="modal" id="voiceModal">
+        <div class="modal-content">
+          <div class="flex justify-between items-center mb-4">
+            <h2 class="text-xl font-bold" data-translate="voiceInput">Voice Input</h2>
+            <button onclick="closeVoiceModal()" class="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center">
+              <i class="fas fa-times text-white"></i>
+            </button>
+          </div>
+          <div class="voice-visualizer" id="voiceVisualizer">
+            <div class="voice-bar"></div>
+            <div class="voice-bar"></div>
+            <div class="voice-bar"></div>
+            <div class="voice-bar"></div>
+            <div class="voice-bar"></div>
+          </div>
+          <p class="text-center text-white/80 text-sm mb-4" id="voiceStatus" data-translate="sayFoodName">Say the name of the food item</p>
+          <div class="bg-white/10 rounded-xl p-3 mb-4">
+            <p class="text-white text-center" id="voiceResult" data-translate="listening">Listening...</p>
+          </div>
+          <div class="flex space-x-3">
+            <button onclick="simulateVoiceSuccess()" class="flex-1 bg-blue-600 text-white rounded-xl py-3 font-semibold" data-translate="simulate">Simulate</button>
+            <button onclick="closeVoiceModal()" class="flex-1 bg-white/20 text-white rounded-xl py-3 font-semibold" data-translate="cancel">Cancel</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Gallery Modal -->
+      <div class="modal" id="galleryModal">
+        <div class="modal-content">
+          <div class="flex justify-between items-center mb-4">
+            <h2 class="text-xl font-bold" data-translate="selectFromGallery">Select from Gallery</h2>
+            <button onclick="closeGalleryModal()" class="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center">
+              <i class="fas fa-times text-white"></i>
+            </button>
+          </div>
+          <div class="grid grid-cols-2 gap-3 mb-4" id="galleryGrid">
+            <!-- Gallery items will be populated here -->
+          </div>
+          <div class="flex space-x-3">
+            <button onclick="uploadFromDevice()" class="flex-1 bg-blue-600 text-white rounded-xl py-3 font-semibold" data-translate="uploadPhoto">Upload Photo</button>
+            <button onclick="closeGalleryModal()" class="flex-1 bg-white/20 text-white rounded-xl py-3 font-semibold" data-translate="cancel">Cancel</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom Navigation -->
+      <div class="bg-black/90 backdrop-blur-sm border-t border-gray-700">
+        <div class="flex justify-around py-3">
+          <div class="flex flex-col items-center py-2 cursor-pointer" onclick="navigateTo('dashboard')">
+            <i class="fas fa-home text-gray-400 text-xl mb-1"></i>
+            <span class="text-xs text-gray-400" data-translate="home">Home</span>
+          </div>
+          <div class="flex flex-col items-center py-2">
+            <i class="fas fa-camera text-blue-400 text-xl mb-1"></i>
+            <span class="text-xs text-blue-400 font-medium" data-translate="scan">Scan</span>
+          </div>
+          <div class="flex flex-col items-center py-2 cursor-pointer" onclick="navigateTo('food-entry')">
+            <i class="fas fa-plus-circle text-gray-400 text-xl mb-1"></i>
+            <span class="text-xs text-gray-400" data-translate="add">Add</span>
+          </div>
+          <div class="flex flex-col items-center py-2 cursor-pointer" onclick="navigateTo('weight-tracking')">
+            <i class="fas fa-chart-line text-gray-400 text-xl mb-1"></i>
+            <span class="text-xs text-gray-400" data-translate="progress">Progress</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Language translations
+      const translations = {
+        en: {
+          aiScanner: "AI Food Scanner",
+          aiActive: "AI Active",
+          aiAnalyzing: "AI Analyzing...",
+          confidence: "confidence",
+          pointCamera: "Point camera at food item for instant nutrition analysis",
+          foodDetected: "Food Detected",
+          readyToScan: "Ready to scan",
+          detected: "Detected:",
+          estCalories: "Est. Calories:",
+          recent: "Recent",
+          barcode: "Barcode",
+          voice: "Voice",
+          home: "Home",
+          scan: "Scan",
+          add: "Add",
+          progress: "Progress",
+          flashEnabled: "Flash enabled",
+          flashDisabled: "Flash disabled",
+          scanSuccess: "scanned successfully!",
+          openingGallery: "Opening gallery...",
+          selectedFromGallery: "Selected from gallery",
+          barcodeOpening: "Barcode scanner opening...",
+          barcodeScanned: "Barcode scanned successfully!",
+          voiceActivated: "Voice input activated...",
+          listening: "Listening...",
+          voiceRecognized: "Voice input recognized",
+          processingImage: "Processing image...",
+          analyzingNutrition: "Analyzing nutrition...",
+          generatingInsights: "Generating insights...",
+          scanComplete: "Scan complete!",
+          aiReady: "AI Ready",
+          aiProcessing: "AI Processing",
+          noRecentScans: "No recent scans found",
+          loadedRecent: "Loaded recent:",
+          recentScans: "Recent Scans",
+          barcodeScanner: "Barcode Scanner",
+          voiceInput: "Voice Input",
+          selectFromGallery: "Select from Gallery",
+          alignBarcode: "Align barcode within the frame",
+          sayFoodName: "Say the name of the food item",
+          simulate: "Simulate",
+          cancel: "Cancel",
+          uploadPhoto: "Upload Photo",
+          photoUploaded: "Photo uploaded successfully!",
+          clearHistory: "Clear History",
+          historyCleared: "Scan history cleared!"
+        },
+        so: {
+          aiScanner: "Sawir-qaadaha Cuntada AI",
+          aiActive: "AI Waa Shaqaynaya",
+          aiAnalyzing: "AI Waa Falanqaynaya...",
+          confidence: "kalsoonida",
+          pointCamera: "Kaameeradda u toos cuntada si aad u hesho falanqayn degdeg ah oo nafaqo ah",
+          foodDetected: "Cuntada Waa La Helay",
+          readyToScan: "Diyaar u sawir-qaadis",
+          detected: "La Helay:",
+          estCalories: "Qiyaasta Kaloriga:",
+          recent: "Dhowaan",
+          barcode: "Barcode",
+          voice: "Codka",
+          home: "Guriga",
+          scan: "Sawir",
+          add: "Ku Dar",
+          progress: "Horumar",
+          flashEnabled: "Flash-ka waa la daray",
+          flashDisabled: "Flash-ka waa la damiyay",
+          scanSuccess: "si guul leh ayaa loo sawir-qaadey!",
+          openingGallery: "Gallariga waa la furayaa...",
+          selectedFromGallery: "Waa laga doortay gallariga",
+          barcodeOpening: "Sawir-qaadaha barcode waa la furayaa...",
+          barcodeScanned: "Barcode si guul leh ayaa loo sawir-qaadey!",
+          voiceActivated: "Gelinta codka waa la daray...",
+          listening: "Waa la dhegaysanayaa...",
+          voiceRecognized: "Gelinta codka waa la aqoonsaday",
+          processingImage: "Sawirka waa la habeynayaa...",
+          analyzingNutrition: "Nafaqada waa la falanqaynayaa...",
+          generatingInsights: "Fikradaha waa la soo saarayaa...",
+          scanComplete: "Sawir-qaadista waa dhammaatay!",
+          aiReady: "AI Diyaar",
+          aiProcessing: "AI Waa Habeynaya",
+          noRecentScans: "Lama helin sawir-qaadis dhowaan ah",
+          loadedRecent: "Waa la soo raray kan dhowaan:",
+          recentScans: "Sawir-qaadisyadii Dhowaan",
+          barcodeScanner: "Sawir-qaadaha Barcode",
+          voiceInput: "Gelinta Codka",
+          selectFromGallery: "Ka Dooro Gallariga",
+          alignBarcode: "Barcode-ka ku hagaaji xudduudka gudaha",
+          sayFoodName: "Sheeg magaca cuntada",
+          simulate: "Ku Celi",
+          cancel: "Jooji",
+          uploadPhoto: "Soo Rar Sawir",
+          photoUploaded: "Sawirka si guul leh ayaa loo soo raray!",
+          clearHistory: "Nadiifi Taariikhda",
+          historyCleared: "Taariikhda sawir-qaadista waa la nadiifiyay!"
+        }
+      };
+
+      let isFlashOn = false;
+      let isScanning = false;
+      let currentLanguage = localStorage.getItem('nutrimate_language') || 'en';
+      let detectedFoods = [
+        { name: 'Mixed Salad', calories: 180, confidence: 87, image: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=100&h=100&fit=crop' },
+        { name: 'Grilled Chicken', calories: 250, confidence: 92, image: 'https://images.unsplash.com/photo-1532550907401-a500c9a57435?w=100&h=100&fit=crop' },
+        { name: 'Banana', calories: 105, confidence: 95, image: 'https://images.unsplash.com/photo-1571771894821-ce9b6c11b08e?w=100&h=100&fit=crop' },
+        { name: 'Avocado Toast', calories: 320, confidence: 89, image: 'https://images.unsplash.com/photo-1541519227354-08fa5d50c44d?w=100&h=100&fit=crop' },
+        { name: 'Greek Yogurt', calories: 150, confidence: 91, image: 'https://images.unsplash.com/photo-1488477181946-6428a0291777?w=100&h=100&fit=crop' },
+        { name: 'Apple', calories: 95, confidence: 94, image: 'https://images.unsplash.com/photo-1560806887-1e4cd0b6cbd6?w=100&h=100&fit=crop' },
+        { name: 'Protein Bar', calories: 200, confidence: 98, image: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=100&h=100&fit=crop' },
+        { name: 'Smoothie Bowl', calories: 280, confidence: 88, image: 'https://images.unsplash.com/photo-1511690743698-d9d85f2fbf38?w=100&h=100&fit=crop' }
+      ];
+      let currentFood = detectedFoods[0];
+      let scannedHistory = JSON.parse(localStorage.getItem('nutrimate_scanned_foods')) || [];
+
+      // Initialize camera
+      document.addEventListener('DOMContentLoaded', function() {
+        setLanguage(currentLanguage);
+        simulateAIDetection();
+        populateGallery();
+      });
+
+      function toggleLanguage() {
+        currentLanguage = currentLanguage === 'en' ? 'so' : 'en';
+        setLanguage(currentLanguage);
+        localStorage.setItem('nutrimate_language', currentLanguage);
+        const message = currentLanguage === 'en' ? 'Language changed to English' : 'Luqadda waxaa loo beddelay Soomaali';
+        showNotification(message, 'success');
+      }
+
+      function setLanguage(lang) {
+        const flagIcon = document.getElementById('flagIcon');
+        
+        // Update flag
+        if (lang === 'so') {
+          flagIcon.className = 'flag-icon flag-so';
+        } else {
+          flagIcon.className = 'flag-icon flag-us';
+        }
+
+        // Update all translatable elements
+        const elements = document.querySelectorAll('[data-translate]');
+        elements.forEach(element => {
+          const key = element.getAttribute('data-translate');
+          if (translations[lang] && translations[lang][key]) {
+            element.textContent = translations[lang][key];
+          }
+        });
+
+        // Update confidence text
+        updateConfidenceText();
+
+        // Update document language
+        document.documentElement.lang = lang;
+      }
+
+      function updateConfidenceText() {
+        const confidenceElement = document.getElementById('confidenceText');
+        confidenceElement.innerHTML = `${currentFood.confidence}% <span data-translate="confidence">${translations[currentLanguage].confidence}</span>`;
+      }
+
+      function simulateAIDetection() {
+        setInterval(() => {
+          if (!isScanning) {
+            // Randomly change detected food
+            if (Math.random() > 0.7) {
+              currentFood = detectedFoods[Math.floor(Math.random() * detectedFoods.length)];
+              updateDetectionDisplay();
+            }
+          }
+        }, 3000);
+      }
+
+      function updateDetectionDisplay() {
+        document.getElementById('detectedFood').textContent = currentFood.name;
+        document.getElementById('estimatedCalories').textContent = `~${currentFood.calories} kcal`;
+        updateConfidenceText();
+      }
+
+      function toggleFlash() {
+        isFlashOn = !isFlashOn;
+        const flashIcon = document.getElementById('flashIcon');
+        const flashBtn = document.getElementById('flashBtn');
+        
+        if (isFlashOn) {
+          flashIcon.className = 'fas fa-flash text-yellow-400 text-lg';
+          flashBtn.style.background = 'rgba(251, 191, 36, 0.2)';
+          showNotification(translations[currentLanguage].flashEnabled, 'info');
+        } else {
+          flashIcon.className = 'fas fa-flash text-white text-lg';
+          flashBtn.style.background = 'rgba(59, 130, 246, 0.1)';
+          showNotification(translations[currentLanguage].flashDisabled, 'info');
+        }
+      }
+
+      function captureFood() {
+        if (isScanning) return;
+        
+        isScanning = true;
+        const viewfinder = document.getElementById('viewfinder');
+        const captureBtn = document.getElementById('captureBtn');
+        const captureIcon = document.getElementById('captureIcon');
+        const flashEffect = document.getElementById('flashEffect');
+        const analysisText = document.getElementById('analysisText');
+        const aiStatusText = document.getElementById('aiStatusText');
+        
+        // Flash effect
+        flashEffect.classList.add('active');
+        setTimeout(() => {
+          flashEffect.classList.remove('active');
+        }, 100);
+        
+        // Update UI to scanning state
+        viewfinder.classList.add('scanning');
+        captureIcon.className = 'fas fa-spinner fa-spin text-white text-2xl';
+        analysisText.textContent = translations[currentLanguage].processingImage;
+        aiStatusText.textContent = translations[currentLanguage].aiProcessing;
+        
+        // Simulate AI processing
+        setTimeout(() => {
+          analysisText.textContent = translations[currentLanguage].analyzingNutrition;
+        }, 1000);
+        
+        setTimeout(() => {
+          analysisText.textContent = translations[currentLanguage].generatingInsights;
+        }, 2000);
+        
+        setTimeout(() => {
+          // Complete scan
+          isScanning = false;
+          viewfinder.classList.remove('scanning');
+          captureIcon.className = 'fas fa-check text-white text-2xl';
+          analysisText.textContent = translations[currentLanguage].scanComplete;
+          aiStatusText.textContent = translations[currentLanguage].aiReady;
+          
+          showNotification(`${currentFood.name} ${translations[currentLanguage].scanSuccess}`, 'success');
+          
+          // Save scanned food
+          saveFoodScan(currentFood);
+          
+          // Navigate to food entry after delay
+          setTimeout(() => {
+            navigateToFoodEntry();
+          }, 1500);
+          
+          // Reset capture button
+          setTimeout(() => {
+            captureIcon.className = 'fas fa-camera text-white text-2xl';
+            analysisText.textContent = translations[currentLanguage].aiAnalyzing;
+          }, 2000);
+        }, 3000);
+      }
+
+      function saveFoodScan(food) {
+        const newScan = {
+          ...food,
+          timestamp: new Date().toISOString(),
+          id: Date.now()
+        };
+        
+        scannedHistory.unshift(newScan);
+        
+        // Keep only last 20 scans
+        if (scannedHistory.length > 20) {
+          scannedHistory = scannedHistory.slice(0, 20);
+        }
+        
+        localStorage.setItem('nutrimate_scanned_foods', JSON.stringify(scannedHistory));
+        localStorage.setItem('nutrimate_current_food', JSON.stringify(food));
+      }
+
+      // RECENT SCANS FUNCTIONALITY
+      function showRecent() {
+        populateRecentList();
+        document.getElementById('recentModal').classList.add('active');
+      }
+
+      function populateRecentList() {
+        const recentList = document.getElementById('recentList');
+        
+        if (scannedHistory.length === 0) {
+          recentList.innerHTML = `<p class="text-white/70 text-center py-8">${translations[currentLanguage].noRecentScans}</p>`;
+          return;
+        }
+        
+        recentList.innerHTML = scannedHistory.slice(0, 10).map(item => `
+          <div class="recent-item" onclick="selectRecentItem('${item.name}', ${item.calories}, ${item.confidence})">
+            <div class="flex items-center">
+              <img src="${item.image || 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=50&h=50&fit=crop'}" 
+                   alt="${item.name}" class="w-12 h-12 rounded-lg mr-3 object-cover">
+              <div class="flex-1">
+                <div class="font-semibold">${item.name}</div>
+                <div class="text-sm text-white/70">${item.calories} kcal • ${item.confidence}% confidence</div>
+                <div class="text-xs text-white/50">${new Date(item.timestamp).toLocaleDateString()}</div>
+              </div>
+            </div>
+          </div>
+        `).join('');
+        
+        // Add clear history button
+        recentList.innerHTML += `
+          <button onclick="clearScanHistory()" class="w-full mt-4 bg-red-600/20 text-red-400 rounded-xl py-3 font-semibold hover:bg-red-600/30 transition-colors">
+            ${translations[currentLanguage].clearHistory}
+          </button>
+        `;
+      }
+
+      function selectRecentItem(name, calories, confidence) {
+        currentFood = { name, calories, confidence };
+        updateDetectionDisplay();
+        closeRecentModal();
+        showNotification(`${translations[currentLanguage].loadedRecent} ${name}`, 'success');
+      }
+
+      function clearScanHistory() {
+        if (confirm(currentLanguage === 'en' ? 'Clear all scan history?' : 'Nadiifi dhammaan taariikhda sawir-qaadista?')) {
+          scannedHistory = [];
+          localStorage.setItem('nutrimate_scanned_foods', JSON.stringify(scannedHistory));
+          populateRecentList();
+          showNotification(translations[currentLanguage].historyCleared, 'success');
+        }
+      }
+
+      function closeRecentModal() {
+        document.getElementById('recentModal').classList.remove('active');
+      }
+
+      // BARCODE SCANNER FUNCTIONALITY
+      function scanBarcode() {
+        document.getElementById('barcodeModal').classList.add('active');
+      }
+
+      function simulateBarcodeSuccess() {
+        const barcodeFood = detectedFoods[Math.floor(Math.random() * detectedFoods.length)];
+        currentFood = barcodeFood;
+        updateDetectionDisplay();
+        saveFoodScan(barcodeFood);
+        closeBarcodeModal();
+        showNotification(translations[currentLanguage].barcodeScanned, 'success');
+      }
+
+      function closeBarcodeModal() {
+        document.getElementById('barcodeModal').classList.remove('active');
+      }
+
+      // VOICE INPUT FUNCTIONALITY
+      function voiceInput() {
+        document.getElementById('voiceModal').classList.add('active');
+        startVoiceListening();
+      }
+
+      function startVoiceListening() {
+        const voiceResult = document.getElementById('voiceResult');
+        const voiceStatus = document.getElementById('voiceStatus');
+        
+        voiceResult.textContent = translations[currentLanguage].listening;
+        voiceStatus.textContent = translations[currentLanguage].sayFoodName;
+        
+        // Simulate voice recognition after 3 seconds
+        setTimeout(() => {
+          simulateVoiceSuccess();
+        }, 3000);
+      }
+
+      function simulateVoiceSuccess() {
+        const voiceFood = detectedFoods[Math.floor(Math.random() * detectedFoods.length)];
+        const voiceResult = document.getElementById('voiceResult');
+        
+        voiceResult.textContent = `"${voiceFood.name}"`;
+        
+        setTimeout(() => {
+          currentFood = voiceFood;
+          updateDetectionDisplay();
+          saveFoodScan(voiceFood);
+          closeVoiceModal();
+          showNotification(`${translations[currentLanguage].voiceRecognized}: ${voiceFood.name}`, 'success');
+        }, 1000);
+      }
+
+      function closeVoiceModal() {
+        document.getElementById('voiceModal').classList.remove('active');
+      }
+
+      // GALLERY FUNCTIONALITY
+      function openGallery() {
+        document.getElementById('galleryModal').classList.add('active');
+      }
+
+      function populateGallery() {
+        const galleryGrid = document.getElementById('galleryGrid');
+        
+        galleryGrid.innerHTML = detectedFoods.slice(0, 6).map(food => `
+          <div class="bg-white/10 rounded-xl p-3 cursor-pointer hover:bg-white/20 transition-colors" 
+               onclick="selectFromGallery('${food.name}', ${food.calories}, ${food.confidence})">
+            <img src="${food.image}" alt="${food.name}" class="w-full h-20 object-cover rounded-lg mb-2">
+            <div class="text-white text-sm font-medium">${food.name}</div>
+            <div class="text-white/70 text-xs">${food.calories} kcal</div>
+          </div>
+        `).join('');
+      }
+
+      function selectFromGallery(name, calories, confidence) {
+        currentFood = { name, calories, confidence };
+        updateDetectionDisplay();
+        saveFoodScan(currentFood);
+        closeGalleryModal();
+        showNotification(`${translations[currentLanguage].selectedFromGallery}: ${name}`, 'success');
+      }
+
+      function uploadFromDevice() {
+        // Simulate photo upload
+        const randomFood = detectedFoods[Math.floor(Math.random() * detectedFoods.length)];
+        currentFood = randomFood;
+        updateDetectionDisplay();
+        saveFoodScan(randomFood);
+        closeGalleryModal();
+        showNotification(translations[currentLanguage].photoUploaded, 'success');
+      }
+
+      function closeGalleryModal() {
+        document.getElementById('galleryModal').classList.remove('active');
+      }
+
+      function manualEntry() {
+        navigateTo('food-entry');
+      }
+
+      function navigateTo(screen) {
+        window.location.href = `${screen}.html`;
+      }
+
+      function navigateToFoodEntry() {
+        navigateTo('food-entry');
+      }
+
+      function goBack() {
+        window.history.back();
+      }
+
+      function showNotification(message, type) {
+        const notification = document.createElement('div');
+        const colors = {
+          success: 'bg-green-500',
+          error: 'bg-red-500',
+          info: 'bg-blue-500',
+          warning: 'bg-yellow-500'
+        };
+        
+        notification.className = `fixed top-4 left-1/2 transform -translate-x-1/2 z-50 px-6 py-3 rounded-xl text-white font-medium ${colors[type] || colors.info}`;
+        notification.textContent = message;
+        
+        document.body.appendChild(notification);
+        
+        setTimeout(() => {
+          notification.remove();
+        }, 3000);
+      }
+    </script>
+  </body>
+</html>
+
+                    </div>
+<div class="screen-item">
+                      <h3>Food Entry</h3>
+                      
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NutriTrack - Food Entry</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      .food-entry-phone-frame {
+        width: 375px;
+        min-height: 812px;
+        background: white;
+        border-radius: 40px;
+        overflow: hidden;
+        position: relative;
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+          0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        border: 1px solid #e2e8f0;
+        margin: 2rem;
+        display: inline-flex;
+        flex-direction: column;
+      }
+      .portion-slider {
+        -webkit-appearance: none;
+        appearance: none;
+        height: 6px;
+        border-radius: 3px;
+        background: #e5e7eb;
+        outline: none;
+      }
+      .portion-slider::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        background: #3b82f6;
+        cursor: pointer;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      }
+    </style>
+  </head>
+  <body class="bg-gray-100 flex justify-center items-center min-h-screen">
+    <div class="food-entry-phone-frame">
+      <!-- Header -->
+      <div class="bg-white px-6 py-4 border-b border-gray-100">
+        <div class="flex justify-between items-center">
+          <button class="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center">
+            <i class="fas fa-arrow-left text-gray-600 text-lg"></i>
+          </button>
+          <h1 class="text-lg font-semibold text-gray-800">Add Food</h1>
+          <button class="text-blue-600 font-semibold">Save</button>
+        </div>
+      </div>
+
+      <!-- Food Image & Info -->
+      <div class="px-6 py-6">
+        <div class="bg-white rounded-3xl shadow-sm overflow-hidden mb-6">
+          <div class="h-48 bg-gradient-to-br from-orange-100 to-red-100 flex items-center justify-center">
+            <img src="https://images.unsplash.com/photo-1571091718767-18b5b1457add?w=300&h=200&fit=crop" 
+                 alt="Grilled Chicken" class="w-full h-full object-cover">
+          </div>
+          <div class="p-6">
+            <h2 class="text-2xl font-bold text-gray-800 mb-2">Grilled Chicken Breast</h2>
+            <p class="text-gray-600 mb-4">Lean protein, skinless</p>
+            
+            <!-- Portion Control -->
+            <div class="mb-6">
+              <div class="flex justify-between items-center mb-3">
+                <span class="text-lg font-semibold text-gray-800">Portion Size</span>
+                <span class="text-lg font-bold text-blue-600">150g</span>
+              </div>
+              <input type="range" min="50" max="300" value="150" 
+                     class="portion-slider w-full mb-4">
+              <div class="flex justify-between text-sm text-gray-500">
+                <span>50g</span>
+                <span>300g</span>
+              </div>
+            </div>
+
+            <!-- Quick Portions -->
+            <div class="grid grid-cols-4 gap-2 mb-6">
+              <button class="bg-gray-100 rounded-xl py-3 px-2 text-center">
+                <div class="text-sm font-semibold text-gray-800">100g</div>
+                <div class="text-xs text-gray-500">Small</div>
+              </button>
+              <button class="bg-blue-100 border-2 border-blue-300 rounded-xl py-3 px-2 text-center">
+                <div class="text-sm font-semibold text-blue-800">150g</div>
+                <div class="text-xs text-blue-600">Medium</div>
+              </button>
+              <button class="bg-gray-100 rounded-xl py-3 px-2 text-center">
+                <div class="text-sm font-semibold text-gray-800">200g</div>
+                <div class="text-xs text-gray-500">Large</div>
+              </button>
+              <button class="bg-gray-100 rounded-xl py-3 px-2 text-center">
+                <div class="text-sm font-semibold text-gray-800">Custom</div>
+                <div class="text-xs text-gray-500">Edit</div>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Nutritional Information -->
+        <div class="bg-white rounded-3xl shadow-sm p-6 mb-6">
+          <h3 class="text-lg font-semibold text-gray-800 mb-4">Nutritional Information</h3>
+          
+          <!-- Calories -->
+          <div class="flex justify-between items-center py-4 border-b border-gray-100">
+            <div class="flex items-center">
+              <div class="w-10 h-10 bg-blue-100 rounded-xl flex items-center justify-center mr-3">
+                <i class="fas fa-fire text-blue-600 text-lg"></i>
+              </div>
+              <span class="font-medium text-gray-800">Calories</span>
+            </div>
+            <span class="text-xl font-bold text-gray-800">248 kcal</span>
+          </div>
+
+          <!-- Macronutrients -->
+          <div class="space-y-4 mt-4">
+            <div class="flex justify-between items-center">
+              <div class="flex items-center">
+                <div class="w-4 h-4 bg-red-500 rounded-full mr-3"></div>
+                <span class="text-gray-700">Protein</span>
+              </div>
+              <div class="text-right">
+                <span class="font-semibold text-gray-800">46.2g</span>
+                <span class="text-sm text-gray-500 ml-2">74%</span>
+              </div>
+            </div>
+            
+            <div class="flex justify-between items-center">
+              <div class="flex items-center">
+                <div class="w-4 h-4 bg-orange-500 rounded-full mr-3"></div>
+                <span class="text-gray-700">Carbohydrates</span>
+              </div>
+              <div class="text-right">
+                <span class="font-semibold text-gray-800">0g</span>
+                <span class="text-sm text-gray-500 ml-2">0%</span>
+              </div>
+            </div>
+            
+            <div class="flex justify-between items-center">
+              <div class="flex items-center">
+                <div class="w-4 h-4 bg-yellow-500 rounded-full mr-3"></div>
+                <span class="text-gray-700">Fat</span>
+              </div>
+              <div class="text-right">
+                <span class="font-semibold text-gray-800">5.4g</span>
+                <span class="text-sm text-gray-500 ml-2">8%</span>
+              </div>
+            </div>
+            
+            <div class="flex justify-between items-center">
+              <div class="flex items-center">
+                <div class="w-4 h-4 bg-green-500 rounded-full mr-3"></div>
+                <span class="text-gray-700">Fiber</span>
+              </div>
+              <div class="text-right">
+                <span class="font-semibold text-gray-800">0g</span>
+                <span class="text-sm text-gray-500 ml-2">0%</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Meal Selection -->
+        <div class="bg-white rounded-3xl shadow-sm p-6 mb-20">
+          <h3 class="text-lg font-semibold text-gray-800 mb-4">Add to Meal</h3>
+          <div class="grid grid-cols-2 gap-3">
+            <button class="bg-blue-100 border-2 border-blue-300 rounded-2xl p-4 text-center">
+              <i class="fas fa-sun text-blue-600 text-xl mb-2"></i>
+              <div class="font-semibold text-blue-800">Lunch</div>
+            </button>
+            <button class="bg-gray-100 rounded-2xl p-4 text-center">
+              <i class="fas fa-coffee text-gray-600 text-xl mb-2"></i>
+              <div class="font-semibold text-gray-700">Breakfast</div>
+            </button>
+            <button class="bg-gray-100 rounded-2xl p-4 text-center">
+              <i class="fas fa-moon text-gray-600 text-xl mb-2"></i>
+              <div class="font-semibold text-gray-700">Dinner</div>
+            </button>
+            <button class="bg-gray-100 rounded-2xl p-4 text-center">
+              <i class="fas fa-apple-alt text-gray-600 text-xl mb-2"></i>
+              <div class="font-semibold text-gray-700">Snack</div>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom Navigation -->
+      <div class="absolute bottom-0 left-0 right-0 bg-white border-t border-gray-100">
+        <div class="flex justify-around py-3">
+          <div class="flex flex-col items-center py-2">
+            <i class="fas fa-home text-gray-400 text-xl mb-1"></i>
+            <span class="text-xs text-gray-400">Home</span>
+          </div>
+          <div class="flex flex-col items-center py-2">
+            <i class="fas fa-camera text-gray-400 text-xl mb-1"></i>
+            <span class="text-xs text-gray-400">Scan</span>
+          </div>
+          <div class="flex flex-col items-center py-2">
+            <i class="fas fa-plus-circle text-blue-600 text-xl mb-1"></i>
+            <span class="text-xs text-blue-600 font-medium">Add</span>
+          </div>
+          <div class="flex flex-col items-center py-2">
+            <i class="fas fa-chart-line text-gray-400 text-xl mb-1"></i>
+            <span class="text-xs text-gray-400">Progress</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+
+                    </div>
+<div class="screen-item">
+                      <h3>Weight Tracking</h3>
+                      
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NutriMate - Weight Progress</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      .weight-tracking-phone-frame {
+        width: 375px;
+        min-height: 812px;
+        background: white;
+        border-radius: 40px;
+        overflow: hidden;
+        position: relative;
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+          0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        border: 1px solid #e2e8f0;
+        margin: 2rem;
+        display: inline-flex;
+        flex-direction: column;
+      }
+      .progress-chart {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      }
+      .scroll-content {
+        max-height: calc(812px - 140px);
+        overflow-y: auto;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+      }
+      .scroll-content::-webkit-scrollbar {
+        display: none;
+      }
+      .weight-entry {
+        transition: all 0.3s ease;
+      }
+      .weight-entry:hover {
+        transform: translateX(5px);
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      }
+      .modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0,0,0,0.5);
+        z-index: 1000;
+        backdrop-filter: blur(5px);
+      }
+      .modal.active {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .modal-content {
+        background: white;
+        border-radius: 20px;
+        padding: 24px;
+        width: 320px;
+        max-width: 90vw;
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        transform: scale(0.9);
+        transition: transform 0.3s ease;
+      }
+      .modal.active .modal-content {
+        transform: scale(1);
+      }
+      .weight-input {
+        font-size: 2rem;
+        font-weight: bold;
+        text-align: center;
+        border: none;
+        outline: none;
+        background: #f8fafc;
+        border-radius: 12px;
+        padding: 16px;
+        width: 100%;
+        color: #1f2937;
+      }
+      .weight-input:focus {
+        background: #e2e8f0;
+        box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+      }
+      .unit-selector {
+        display: flex;
+        background: #f1f5f9;
+        border-radius: 12px;
+        padding: 4px;
+        margin: 16px 0;
+      }
+      .unit-option {
+        flex: 1;
+        padding: 8px 16px;
+        text-align: center;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-weight: 500;
+      }
+      .unit-option.active {
+        background: white;
+        color: #3b82f6;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      }
+      .delete-btn {
+        opacity: 0;
+        transform: translateX(10px);
+        transition: all 0.3s ease;
+      }
+      .weight-entry:hover .delete-btn {
+        opacity: 1;
+        transform: translateX(0);
+      }
+      .language-toggle {
+        transition: all 0.3s ease;
+      }
+      .language-toggle:hover {
+        transform: scale(1.05);
+      }
+      .flag-icon {
+        width: 16px;
+        height: 12px;
+        border-radius: 2px;
+        display: inline-block;
+        margin-right: 6px;
+      }
+      .flag-us {
+        background: linear-gradient(to bottom, #b22234 0%, #b22234 7.69%, #ffffff 7.69%, #ffffff 15.38%, #b22234 15.38%);
+      }
+      .flag-so {
+        background: linear-gradient(to bottom, #4189dd 0%, #4189dd 33.33%, #ffffff 33.33%, #ffffff 66.66%, #4189dd 66.66%);
+        position: relative;
+      }
+      .flag-so::after {
+        content: '★';
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        color: white;
+        font-size: 6px;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-100 flex justify-center items-center min-h-screen">
+    <div class="weight-tracking-phone-frame">
+      <!-- Header -->
+      <div class="bg-gradient-to-r from-purple-50 to-blue-50 px-6 py-8 sticky top-0 z-10">
+        <div class="flex justify-between items-center mb-6">
+          <button onclick="goBack()" class="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-sm">
+            <i class="fas fa-arrow-left text-gray-600 text-lg"></i>
+          </button>
+          <h1 class="text-xl font-semibold text-gray-800" data-translate="weightProgress">Weight Progress</h1>
+          <div class="flex items-center space-x-2">
+            <!-- Language Toggle -->
+            <button onclick="toggleLanguage()" class="language-toggle w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-sm">
+              <div class="flag-icon flag-us" id="flagIcon"></div>
+            </button>
+            <!-- Add Weight Button -->
+            <button onclick="showAddWeightModal()" class="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center shadow-sm hover:bg-blue-700 transition-colors">
+              <i class="fas fa-plus text-white text-lg"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Current Weight Card -->
+        <div class="bg-white rounded-3xl p-6 shadow-sm mb-6">
+          <div class="text-center">
+            <div class="text-4xl font-bold text-gray-800 mb-2" id="currentWeight">72.5 kg</div>
+            <div class="text-gray-600 mb-4" data-translate="currentWeight">Current Weight</div>
+            <div class="flex items-center justify-center space-x-4">
+              <div class="flex items-center text-green-600" id="weightChange">
+                <i class="fas fa-arrow-down text-sm mr-1"></i>
+                <span class="text-sm font-semibold">-2.3 kg</span>
+              </div>
+              <div class="text-gray-400">•</div>
+              <div class="text-sm text-gray-600" data-translate="thisMonth">This month</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Content -->
+      <div class="scroll-content flex-1 px-6">
+        <!-- Progress Chart -->
+        <div class="bg-white rounded-3xl shadow-sm overflow-hidden mb-6">
+          <div class="progress-chart h-48 p-6 relative">
+            <div class="flex justify-between items-start mb-4">
+              <div>
+                <h3 class="text-white font-semibold text-lg" data-translate="weightTrend">Weight Trend</h3>
+                <p class="text-white/80 text-sm" data-translate="lastThreeMonths">Last 3 months</p>
+              </div>
+              <div class="bg-white/20 rounded-xl px-3 py-1">
+                <span class="text-white text-sm">3M</span>
+              </div>
+            </div>
+            
+            <!-- Simplified Chart Visualization -->
+            <div class="absolute bottom-6 left-6 right-6">
+              <svg viewBox="0 0 300 80" class="w-full h-20">
+                <polyline points="0,60 50,55 100,50 150,45 200,40 250,35 300,30" 
+                          stroke="white" stroke-width="3" fill="none" opacity="0.8"/>
+                <circle cx="300" cy="30" r="4" fill="white"/>
+              </svg>
+            </div>
+          </div>
+          
+          <div class="p-6">
+            <div class="grid grid-cols-3 gap-4">
+              <div class="text-center">
+                <div class="text-2xl font-bold text-gray-800" id="startWeight">74.8</div>
+                <div class="text-sm text-gray-500" data-translate="start">Start</div>
+              </div>
+              <div class="text-center">
+                <div class="text-2xl font-bold text-blue-600" id="goalWeight">70.0</div>
+                <div class="text-sm text-gray-500" data-translate="goal">Goal</div>
+              </div>
+              <div class="text-center">
+                <div class="text-2xl font-bold text-green-600" id="toGoWeight">2.5</div>
+                <div class="text-sm text-gray-500" data-translate="toGo">To go</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Goal Setting -->
+        <div class="bg-white rounded-3xl shadow-sm p-6 mb-6">
+          <h3 class="text-lg font-semibold text-gray-800 mb-4" data-translate="goalSettings">Goal Settings</h3>
+          
+          <div class="space-y-4">
+            <div class="flex justify-between items-center py-3 border-b border-gray-100">
+              <div class="flex items-center">
+                <div class="w-10 h-10 bg-blue-100 rounded-xl flex items-center justify-center mr-3">
+                  <i class="fas fa-target text-blue-600 text-lg"></i>
+                </div>
+                <div>
+                  <div class="font-medium text-gray-800" data-translate="targetWeight">Target Weight</div>
+                  <div class="text-sm text-gray-500" data-translate="weeklyGoal">Weekly goal: -0.5 kg</div>
+                </div>
+              </div>
+              <div class="text-right">
+                <div class="font-bold text-gray-800" id="displayGoalWeight">70.0 kg</div>
+                <button onclick="editGoalWeight()" class="text-sm text-blue-600" data-translate="edit">Edit</button>
+              </div>
+            </div>
+            
+            <div class="flex justify-between items-center py-3 border-b border-gray-100">
+              <div class="flex items-center">
+                <div class="w-10 h-10 bg-green-100 rounded-xl flex items-center justify-center mr-3">
+                  <i class="fas fa-calendar text-green-600 text-lg"></i>
+                </div>
+                <div>
+                  <div class="font-medium text-gray-800" data-translate="targetDate">Target Date</div>
+                  <div class="text-sm text-gray-500" data-translate="weeksRemaining">5 weeks remaining</div>
+                </div>
+              </div>
+              <div class="text-right">
+                <div class="font-bold text-gray-800">Mar 15</div>
+                <button onclick="editTargetDate()" class="text-sm text-blue-600" data-translate="edit">Edit</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Recent Entries -->
+        <div class="mb-6">
+          <div class="flex items-center justify-between mb-4">
+            <h3 class="text-lg font-semibold text-gray-800" data-translate="recentEntries">Recent Entries</h3>
+            <button onclick="exportData()" class="text-blue-600 text-sm font-medium" data-translate="export">Export</button>
+          </div>
+          <div class="space-y-3 mb-20" id="weightEntries">
+            <!-- Weight entries will be populated by JavaScript -->
+          </div>
+        </div>
+      </div>
+
+      <!-- Add Weight Modal -->
+      <div class="modal" id="addWeightModal">
+        <div class="modal-content">
+          <div class="flex justify-between items-center mb-6">
+            <h2 class="text-xl font-bold text-gray-800" data-translate="addWeight">Add Weight</h2>
+            <button onclick="closeAddWeightModal()" class="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center">
+              <i class="fas fa-times text-gray-600"></i>
+            </button>
+          </div>
+          
+          <div class="mb-6">
+            <input type="number" id="weightInput" class="weight-input" placeholder="72.5" step="0.1" min="30" max="300">
+            
+            <div class="unit-selector">
+              <div class="unit-option active" onclick="selectUnit('kg')" id="kgOption">kg</div>
+              <div class="unit-option" onclick="selectUnit('lbs')" id="lbsOption">lbs</div>
+            </div>
+            
+            <div class="mb-4">
+              <label class="block text-sm font-medium text-gray-700 mb-2" data-translate="date">Date</label>
+              <input type="date" id="dateInput" class="w-full p-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+            </div>
+            
+            <div class="mb-6">
+              <label class="block text-sm font-medium text-gray-700 mb-2" data-translate="notes">Notes (Optional)</label>
+              <textarea id="notesInput" rows="3" class="w-full p-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500" data-translate-placeholder="notesPlaceholder" placeholder="How are you feeling today?"></textarea>
+            </div>
+          </div>
+          
+          <div class="flex space-x-3">
+            <button onclick="saveWeight()" class="flex-1 bg-blue-600 text-white rounded-xl py-3 font-semibold hover:bg-blue-700 transition-colors" data-translate="save">Save</button>
+            <button onclick="closeAddWeightModal()" class="flex-1 bg-gray-100 text-gray-700 rounded-xl py-3 font-semibold hover:bg-gray-200 transition-colors" data-translate="cancel">Cancel</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Edit Weight Modal -->
+      <div class="modal" id="editWeightModal">
+        <div class="modal-content">
+          <div class="flex justify-between items-center mb-6">
+            <h2 class="text-xl font-bold text-gray-800" data-translate="editWeight">Edit Weight</h2>
+            <button onclick="closeEditWeightModal()" class="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center">
+              <i class="fas fa-times text-gray-600"></i>
+            </button>
+          </div>
+          
+          <div class="mb-6">
+            <input type="number" id="editWeightInput" class="weight-input" step="0.1" min="30" max="300">
+            
+            <div class="unit-selector">
+              <div class="unit-option active" onclick="selectEditUnit('kg')" id="editKgOption">kg</div>
+              <div class="unit-option" onclick="selectEditUnit('lbs')" id="editLbsOption">lbs</div>
+            </div>
+            
+            <div class="mb-4">
+              <label class="block text-sm font-medium text-gray-700 mb-2" data-translate="date">Date</label>
+              <input type="date" id="editDateInput" class="w-full p-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+            </div>
+            
+            <div class="mb-6">
+              <label class="block text-sm font-medium text-gray-700 mb-2" data-translate="notes">Notes (Optional)</label>
+              <textarea id="editNotesInput" rows="3" class="w-full p-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500" data-translate-placeholder="notesPlaceholder" placeholder="How are you feeling today?"></textarea>
+            </div>
+          </div>
+          
+          <div class="flex space-x-3">
+            <button onclick="updateWeight()" class="flex-1 bg-blue-600 text-white rounded-xl py-3 font-semibold hover:bg-blue-700 transition-colors" data-translate="update">Update</button>
+            <button onclick="deleteWeight()" class="flex-1 bg-red-600 text-white rounded-xl py-3 font-semibold hover:bg-red-700 transition-colors" data-translate="delete">Delete</button>
+            <button onclick="closeEditWeightModal()" class="flex-1 bg-gray-100 text-gray-700 rounded-xl py-3 font-semibold hover:bg-gray-200 transition-colors" data-translate="cancel">Cancel</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom Navigation -->
+      <div class="absolute bottom-0 left-0 right-0 bg-white border-t border-gray-100">
+        <div class="flex justify-around py-3">
+          <div class="flex flex-col items-center py-2 cursor-pointer" onclick="navigateTo('dashboard')">
+            <i class="fas fa-home text-gray-400 text-xl mb-1"></i>
+            <span class="text-xs text-gray-400" data-translate="home">Home</span>
+          </div>
+          <div class="flex flex-col items-center py-2 cursor-pointer" onclick="navigateTo('camera-scan')">
+            <i class="fas fa-camera text-gray-400 text-xl mb-1"></i>
+            <span class="text-xs text-gray-400" data-translate="scan">Scan</span>
+          </div>
+          <div class="flex flex-col items-center py-2 cursor-pointer" onclick="navigateTo('food-entry')">
+            <i class="fas fa-plus-circle text-gray-400 text-xl mb-1"></i>
+            <span class="text-xs text-gray-400" data-translate="add">Add</span>
+          </div>
+          <div class="flex flex-col items-center py-2">
+            <i class="fas fa-chart-line text-blue-600 text-xl mb-1"></i>
+            <span class="text-xs text-blue-600 font-medium" data-translate="progress">Progress</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Language translations
+      const translations = {
+        en: {
+          weightProgress: "Weight Progress",
+          currentWeight: "Current Weight",
+          thisMonth: "This month",
+          weightTrend: "Weight Trend",
+          lastThreeMonths: "Last 3 months",
+          start: "Start",
+          goal: "Goal",
+          toGo: "To go",
+          goalSettings: "Goal Settings",
+          targetWeight: "Target Weight",
+          weeklyGoal: "Weekly goal: -0.5 kg",
+          targetDate: "Target Date",
+          weeksRemaining: "5 weeks remaining",
+          edit: "Edit",
+          recentEntries: "Recent Entries",
+          export: "Export",
+          addWeight: "Add Weight",
+          editWeight: "Edit Weight",
+          date: "Date",
+          notes: "Notes (Optional)",
+          notesPlaceholder: "How are you feeling today?",
+          save: "Save",
+          update: "Update",
+          delete: "Delete",
+          cancel: "Cancel",
+          home: "Home",
+          scan: "Scan",
+          add: "Add",
+          progress: "Progress",
+          weightAdded: "Weight added successfully!",
+          weightUpdated: "Weight updated successfully!",
+          weightDeleted: "Weight deleted successfully!",
+          fillWeight: "Please enter your weight",
+          validWeight: "Please enter a valid weight",
+          confirmDelete: "Are you sure you want to delete this weight entry?",
+          dataExported: "Weight data exported!",
+          languageChanged: "Language changed to English",
+          today: "Today",
+          yesterday: "Yesterday",
+          daysAgo: "days ago"
+        },
+        so: {
+          weightProgress: "Horumarka Miisaanka",
+          currentWeight: "Miisaanka Hadda",
+          thisMonth: "Bishaan",
+          weightTrend: "Jihada Miisaanka",
+          lastThreeMonths: "3-dii bilood ee la soo dhaafay",
+          start: "Bilowga",
+          goal: "Yoolka",
+          toGo: "Haray",
+          goalSettings: "Dejinta Yoolka",
+          targetWeight: "Miisaanka La Doonayo",
+          weeklyGoal: "Yoolka usbuuciga: -0.5 kg",
+          targetDate: "Taariikhda La Doonayo",
+          weeksRemaining: "5 usbuuc ayaa haray",
+          edit: "Wax ka beddel",
+          recentEntries: "Gelitaannada Dhowaan",
+          export: "Soo saaris",
+          addWeight: "Ku Dar Miisaan",
+          editWeight: "Wax ka beddel Miisaanka",
+          date: "Taariikh",
+          notes: "Qoraalka (Ikhtiyaari)",
+          notesPlaceholder: "Sidee ayaad u dareemaysaa maanta?",
+          save: "Kaydi",
+          update: "Cusboonaysii",
+          delete: "Tirtir",
+          cancel: "Jooji",
+          home: "Guriga",
+          scan: "Sawir",
+          add: "Ku Dar",
+          progress: "Horumar",
+          weightAdded: "Miisaanka si guul leh ayaa loo daray!",
+          weightUpdated: "Miisaanka si guul leh ayaa loo cusboonaysiiyay!",
+          weightDeleted: "Miisaanka si guul leh ayaa loo tirtiray!",
+          fillWeight: "Fadlan geli miisaankaaga",
+          validWeight: "Fadlan geli miisaan sax ah",
+          confirmDelete: "Ma hubtaa inaad tirtirto gelitaankan miisaanka?",
+          dataExported: "Xogta miisaanka waa la soo saaray!",
+          languageChanged: "Luqadda waxaa loo beddelay Soomaali",
+          today: "Maanta",
+          yesterday: "Shalay",
+          daysAgo: "maalmood ka hor"
+        }
+      };
+
+      let currentLanguage = localStorage.getItem('nutrimate_language') || 'en';
+      let selectedUnit = 'kg';
+      let editingWeightId = null;
+      let weightData = JSON.parse(localStorage.getItem('nutrimate_weight_data')) || [];
+
+      // Initialize default weight data if empty
+      if (weightData.length === 0) {
+        weightData = [
+          {
+            id: Date.now() - 86400000 * 2,
+            weight: 72.6,
+            unit: 'kg',
+            date: new Date(Date.now() - 86400000 * 2).toISOString().split('T')[0],
+            notes: '',
+            timestamp: Date.now() - 86400000 * 2
+          },
+          {
+            id: Date.now() - 86400000,
+            weight: 72.8,
+            unit: 'kg',
+            date: new Date(Date.now() - 86400000).toISOString().split('T')[0],
+            notes: '',
+            timestamp: Date.now() - 86400000
+          },
+          {
+            id: Date.now(),
+            weight: 72.5,
+            unit: 'kg',
+            date: new Date().toISOString().split('T')[0],
+            notes: 'Feeling great today!',
+            timestamp: Date.now()
+          }
+        ];
+        localStorage.setItem('nutrimate_weight_data', JSON.stringify(weightData));
+      }
+
+      // Initialize app
+      document.addEventListener('DOMContentLoaded', function() {
+        setLanguage(currentLanguage);
+        updateWeightDisplay();
+        renderWeightEntries();
+        
+        // Set today's date as default
+        document.getElementById('dateInput').value = new Date().toISOString().split('T')[0];
+      });
+
+      function toggleLanguage() {
+        currentLanguage = currentLanguage === 'en' ? 'so' : 'en';
+        setLanguage(currentLanguage);
+        localStorage.setItem('nutrimate_language', currentLanguage);
+        showNotification(translations[currentLanguage].languageChanged, 'success');
+      }
+
+      function setLanguage(lang) {
+        const flagIcon = document.getElementById('flagIcon');
+        
+        // Update flag
+        if (lang === 'so') {
+          flagIcon.className = 'flag-icon flag-so';
+        } else {
+          flagIcon.className = 'flag-icon flag-us';
+        }
+
+        // Update all translatable elements
+        const elements = document.querySelectorAll('[data-translate]');
+        elements.forEach(element => {
+          const key = element.getAttribute('data-translate');
+          if (translations[lang] && translations[lang][key]) {
+            element.textContent = translations[lang][key];
+          }
+        });
+
+        // Update placeholders
+        const placeholderElements = document.querySelectorAll('[data-translate-placeholder]');
+        placeholderElements.forEach(element => {
+          const key = element.getAttribute('data-translate-placeholder');
+          if (translations[lang] && translations[lang][key]) {
+            element.placeholder = translations[lang][key];
+          }
+        });
+
+        // Re-render weight entries to update relative dates
+        renderWeightEntries();
+
+        // Update document language
+        document.documentElement.lang = lang;
+      }
+
+      function updateWeightDisplay() {
+        if (weightData.length === 0) return;
+        
+        // Sort by timestamp to get latest
+        const sortedData = [...weightData].sort((a, b) => b.timestamp - a.timestamp);
+        const latestWeight = sortedData[0];
+        const previousWeight = sortedData[1];
+        
+        // Update current weight
+        document.getElementById('currentWeight').textContent = `${latestWeight.weight} ${latestWeight.unit}`;
+        
+        // Calculate change
+        if (previousWeight) {
+          const change = latestWeight.weight - previousWeight.weight;
+          const changeElement = document.getElementById('weightChange');
+          
+          if (change > 0) {
+            changeElement.innerHTML = `<i class="fas fa-arrow-up text-sm mr-1"></i><span class="text-sm font-semibold">+${change.toFixed(1)} ${latestWeight.unit}</span>`;
+            changeElement.className = 'flex items-center text-red-600';
+          } else if (change < 0) {
+            changeElement.innerHTML = `<i class="fas fa-arrow-down text-sm mr-1"></i><span class="text-sm font-semibold">${change.toFixed(1)} ${latestWeight.unit}</span>`;
+            changeElement.className = 'flex items-center text-green-600';
+          } else {
+            changeElement.innerHTML = `<i class="fas fa-minus text-sm mr-1"></i><span class="text-sm font-semibold">0 ${latestWeight.unit}</span>`;
+            changeElement.className = 'flex items-center text-gray-600';
+          }
+        }
+        
+        // Update goal calculations
+        const goalWeight = 70.0; // This could be made dynamic
+        const startWeight = 74.8; // This could be made dynamic
+        const toGo = latestWeight.weight - goalWeight;
+        
+        document.getElementById('goalWeight').textContent = goalWeight.toFixed(1);
+        document.getElementById('startWeight').textContent = startWeight.toFixed(1);
+        document.getElementById('toGoWeight').textContent = toGo.toFixed(1);
+        document.getElementById('displayGoalWeight').textContent = `${goalWeight.toFixed(1)} kg`;
+      }
+
+      function renderWeightEntries() {
+        const container = document.getElementById('weightEntries');
+        const sortedData = [...weightData].sort((a, b) => b.timestamp - a.timestamp);
+        
+        container.innerHTML = sortedData.map(entry => {
+          const date = new Date(entry.date);
+          const today = new Date();
+          const yesterday = new Date(today);
+          yesterday.setDate(yesterday.getDate() - 1);
+          
+          let dateText;
+          if (date.toDateString() === today.toDateString()) {
+            dateText = translations[currentLanguage].today;
+          } else if (date.toDateString() === yesterday.toDateString()) {
+            dateText = translations[currentLanguage].yesterday;
+          } else {
+            const daysAgo = Math.floor((today - date) / (1000 * 60 * 60 * 24));
+            dateText = `${daysAgo} ${translations[currentLanguage].daysAgo}`;
+          }
+          
+          // Calculate change from previous entry
+          const currentIndex = sortedData.findIndex(e => e.id === entry.id);
+          const previousEntry = sortedData[currentIndex + 1];
+          let changeIcon = '';
+          let changeText = '';
+          let changeColor = 'text-gray-600';
+          
+          if (previousEntry) {
+            const change = entry.weight - previousEntry.weight;
+            if (change > 0) {
+              changeIcon = '<i class="fas fa-arrow-up text-sm mr-1"></i>';
+              changeText = `+${change.toFixed(1)}`;
+              changeColor = 'text-red-600';
+            } else if (change < 0) {
+              changeIcon = '<i class="fas fa-arrow-down text-sm mr-1"></i>';
+              changeText = `${change.toFixed(1)}`;
+              changeColor = 'text-green-600';
+            } else {
+              changeIcon = '<i class="fas fa-minus text-sm mr-1"></i>';
+              changeText = '0';
+              changeColor = 'text-gray-600';
+            }
+          }
+          
+          return `
+            <div class="weight-entry bg-white rounded-2xl p-4 shadow-sm flex items-center justify-between cursor-pointer" onclick="editWeightEntry(${entry.id})">
+              <div class="flex items-center">
+                <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mr-4">
+                  <i class="fas fa-weight text-blue-600 text-lg"></i>
+                </div>
+                <div>
+                  <div class="font-semibold text-gray-800">${entry.weight} ${entry.unit}</div>
+                  <div class="text-sm text-gray-500">${dateText}</div>
+                  ${entry.notes ? `<div class="text-xs text-gray-400 mt-1">${entry.notes}</div>` : ''}
+                </div>
+              </div>
+              <div class="flex items-center space-x-3">
+                ${changeText ? `<div class="flex items-center ${changeColor}">
+                  ${changeIcon}
+                  <span class="text-sm font-semibold">${changeText}</span>
+                </div>` : ''}
+                <button onclick="event.stopPropagation(); deleteWeightEntry(${entry.id})" class="delete-btn w-8 h-8 bg-red-100 rounded-full flex items-center justify-center hover:bg-red-200 transition-colors">
+                  <i class="fas fa-trash text-red-600 text-sm"></i>
+                </button>
+              </div>
+            </div>
+          `;
+        }).join('');
+      }
+
+      function showAddWeightModal() {
+        document.getElementById('addWeightModal').classList.add('active');
+        document.getElementById('weightInput').focus();
+      }
+
+      function closeAddWeightModal() {
+        document.getElementById('addWeightModal').classList.remove('active');
+        // Reset form
+        document.getElementById('weightInput').value = '';
+        document.getElementById('notesInput').value = '';
+        document.getElementById('dateInput').value = new Date().toISOString().split('T')[0];
+        selectUnit('kg');
+      }
+
+      function selectUnit(unit) {
+        selectedUnit = unit;
+        document.getElementById('kgOption').classList.toggle('active', unit === 'kg');
+        document.getElementById('lbsOption').classList.toggle('active', unit === 'lbs');
+      }
+
+      function selectEditUnit(unit) {
+        selectedUnit = unit;
+        document.getElementById('editKgOption').classList.toggle('active', unit === 'kg');
+        document.getElementById('editLbsOption').classList.toggle('active', unit === 'lbs');
+      }
+
+      function saveWeight() {
+        const weight = parseFloat(document.getElementById('weightInput').value);
+        const date = document.getElementById('dateInput').value;
+        const notes = document.getElementById('notesInput').value;
+        
+        if (!weight) {
+          showNotification(translations[currentLanguage].fillWeight, 'error');
+          return;
+        }
+        
+        if (weight < 30 || weight > 300) {
+          showNotification(translations[currentLanguage].validWeight, 'error');
+          return;
+        }
+        
+        const newEntry = {
+          id: Date.now(),
+          weight: weight,
+          unit: selectedUnit,
+          date: date,
+          notes: notes,
+          timestamp: new Date(date).getTime()
+        };
+        
+        weightData.push(newEntry);
+        localStorage.setItem('nutrimate_weight_data', JSON.stringify(weightData));
+        
+        updateWeightDisplay();
+        renderWeightEntries();
+        closeAddWeightModal();
+        
+        showNotification(translations[currentLanguage].weightAdded, 'success');
+      }
+
+      function editWeightEntry(id) {
+        const entry = weightData.find(e => e.id === id);
+        if (!entry) return;
+        
+        editingWeightId = id;
+        
+        document.getElementById('editWeightInput').value = entry.weight;
+        document.getElementById('editDateInput').value = entry.date;
+        document.getElementById('editNotesInput').value = entry.notes;
+        selectEditUnit(entry.unit);
+        
+        document.getElementById('editWeightModal').classList.add('active');
+      }
+
+      function closeEditWeightModal() {
+        document.getElementById('editWeightModal').classList.remove('active');
+        editingWeightId = null;
+      }
+
+      function updateWeight() {
+        if (!editingWeightId) return;
+        
+        const weight = parseFloat(document.getElementById('editWeightInput').value);
+        const date = document.getElementById('editDateInput').value;
+        const notes = document.getElementById('editNotesInput').value;
+        
+        if (!weight) {
+          showNotification(translations[currentLanguage].fillWeight, 'error');
+          return;
+        }
+        
+        if (weight < 30 || weight > 300) {
+          showNotification(translations[currentLanguage].validWeight, 'error');
+          return;
+        }
+        
+        const entryIndex = weightData.findIndex(e => e.id === editingWeightId);
+        if (entryIndex !== -1) {
+          weightData[entryIndex] = {
+            ...weightData[entryIndex],
+            weight: weight,
+            unit: selectedUnit,
+            date: date,
+            notes: notes,
+            timestamp: new Date(date).getTime()
+          };
+          
+          localStorage.setItem('nutrimate_weight_data', JSON.stringify(weightData));
+          
+          updateWeightDisplay();
+          renderWeightEntries();
+          closeEditWeightModal();
+          
+          showNotification(translations[currentLanguage].weightUpdated, 'success');
+        }
+      }
+
+      function deleteWeight() {
+        if (!editingWeightId) return;
+        
+        if (confirm(translations[currentLanguage].confirmDelete)) {
+          weightData = weightData.filter(e => e.id !== editingWeightId);
+          localStorage.setItem('nutrimate_weight_data', JSON.stringify(weightData));
+          
+          updateWeightDisplay();
+          renderWeightEntries();
+          closeEditWeightModal();
+          
+          showNotification(translations[currentLanguage].weightDeleted, 'success');
+        }
+      }
+
+      function deleteWeightEntry(id) {
+        if (confirm(translations[currentLanguage].confirmDelete)) {
+          weightData = weightData.filter(e => e.id !== id);
+          localStorage.setItem('nutrimate_weight_data', JSON.stringify(weightData));
+          
+          updateWeightDisplay();
+          renderWeightEntries();
+          
+          showNotification(translations[currentLanguage].weightDeleted, 'success');
+        }
+      }
+
+      function editGoalWeight() {
+        const newGoal = prompt(currentLanguage === 'en' ? 'Enter your goal weight (kg):' : 'Geli miisaanka aad doonayso (kg):', '70.0');
+        if (newGoal && !isNaN(newGoal)) {
+          document.getElementById('displayGoalWeight').textContent = `${parseFloat(newGoal).toFixed(1)} kg`;
+          updateWeightDisplay();
+          showNotification(currentLanguage === 'en' ? 'Goal weight updated!' : 'Miisaanka yoolka waa la cusboonaysiiyay!', 'success');
+        }
+      }
+
+      function editTargetDate() {
+        showNotification(currentLanguage === 'en' ? 'Target date editing coming soon!' : 'Wax ka beddelka taariikhda yoolka waa iman doonta dhowaan!', 'info');
+      }
+
+      function exportData() {
+        const csvContent = "data:text/csv;charset=utf-8," 
+          + "Date,Weight,Unit,Notes\n"
+          + weightData.map(e => `${e.date},${e.weight},${e.unit},"${e.notes}"`).join("\n");
+        
+        const encodedUri = encodeURI(csvContent);
+        const link = document.createElement("a");
+        link.setAttribute("href", encodedUri);
+        link.setAttribute("download", "nutrimate_weight_data.csv");
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        
+        showNotification(translations[currentLanguage].dataExported, 'success');
+      }
+
+      function navigateTo(screen) {
+        window.location.href = `${screen}.html`;
+      }
+
+      function goBack() {
+        window.history.back();
+      }
+
+      function showNotification(message, type) {
+        const notification = document.createElement('div');
+        const colors = {
+          success: 'bg-green-500',
+          error: 'bg-red-500',
+          info: 'bg-blue-500',
+          warning: 'bg-yellow-500'
+        };
+        
+        notification.className = `fixed top-4 left-1/2 transform -translate-x-1/2 z-50 px-6 py-3 rounded-xl text-white font-medium ${colors[type] || colors.info}`;
+        notification.textContent = message;
+        
+        document.body.appendChild(notification);
+        
+        setTimeout(() => {
+          notification.remove();
+        }, 3000);
+      }
+    </script>
+  </body>
+</html>
+
+                    </div>
+<div class="screen-item">
+                      <h3>Login</h3>
+                      
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NutriMate - Welcome</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      .login-phone-frame {
+        width: 375px;
+        min-height: 812px;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        border-radius: 40px;
+        overflow: hidden;
+        position: relative;
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+          0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        border: 1px solid #e2e8f0;
+        margin: 2rem;
+        display: inline-flex;
+        flex-direction: column;
+      }
+      .floating-orb {
+        position: absolute;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        animation: float 6s ease-in-out infinite;
+      }
+      .orb-1 {
+        width: 120px;
+        height: 120px;
+        top: 10%;
+        right: -20px;
+        animation-delay: 0s;
+      }
+      .orb-2 {
+        width: 80px;
+        height: 80px;
+        top: 30%;
+        left: -20px;
+        animation-delay: 2s;
+      }
+      .orb-3 {
+        width: 60px;
+        height: 60px;
+        bottom: 20%;
+        right: 20px;
+        animation-delay: 4s;
+      }
+      @keyframes float {
+        0%, 100% { transform: translateY(0px) rotate(0deg); }
+        50% { transform: translateY(-20px) rotate(180deg); }
+      }
+      .glass-card {
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+      }
+      .login-btn {
+        transition: all 0.3s ease;
+        transform: translateY(0);
+      }
+      .login-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+      }
+      .login-btn:active {
+        transform: translateY(0);
+      }
+      .loading {
+        display: none;
+      }
+      .loading.active {
+        display: inline-block;
+        animation: spin 1s linear infinite;
+      }
+      @keyframes spin {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+      }
+      .language-toggle {
+        transition: all 0.3s ease;
+      }
+      .language-toggle:hover {
+        transform: scale(1.05);
+      }
+      .flag-icon {
+        width: 20px;
+        height: 15px;
+        border-radius: 2px;
+        display: inline-block;
+        margin-right: 8px;
+      }
+      .flag-us {
+        background: linear-gradient(to bottom, #b22234 0%, #b22234 7.69%, #ffffff 7.69%, #ffffff 15.38%, #b22234 15.38%);
+      }
+      .flag-so {
+        background: linear-gradient(to bottom, #4189dd 0%, #4189dd 33.33%, #ffffff 33.33%, #ffffff 66.66%, #4189dd 66.66%);
+        position: relative;
+      }
+      .flag-so::after {
+        content: '★';
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        color: white;
+        font-size: 8px;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-100 flex justify-center items-center min-h-screen">
+    <div class="login-phone-frame">
+      <!-- Language Toggle -->
+      <div class="absolute top-6 right-6 z-20">
+        <button onclick="toggleLanguage()" class="language-toggle glass-card rounded-full px-3 py-2 flex items-center">
+          <div class="flag-icon flag-us" id="flagIcon"></div>
+          <span class="text-white text-sm font-medium" id="langText">EN</span>
+        </button>
+      </div>
+
+      <!-- Floating Orbs -->
+      <div class="floating-orb orb-1"></div>
+      <div class="floating-orb orb-2"></div>
+      <div class="floating-orb orb-3"></div>
+      
+      <!-- Content -->
+      <div class="flex-1 flex flex-col justify-center px-8 relative z-10">
+        <!-- Logo & Title -->
+        <div class="text-center mb-12">
+          <div class="w-24 h-24 bg-white/20 rounded-3xl flex items-center justify-center mx-auto mb-6 backdrop-blur-sm">
+            <i class="fas fa-leaf text-white text-4xl"></i>
+          </div>
+          <h1 class="text-4xl font-bold text-white mb-3">NutriMate</h1>
+          <p class="text-white/80 text-lg" data-translate="tagline">Your AI-Powered Nutrition Companion</p>
+        </div>
+
+        <!-- Welcome Message -->
+        <div class="glass-card rounded-3xl p-8 mb-8">
+          <h2 class="text-2xl font-bold text-white mb-4 text-center" data-translate="welcome">Welcome Back</h2>
+          <p class="text-white/90 text-center mb-6" data-translate="description">Track your nutrition journey with advanced AI scanning and personalized insights</p>
+          
+          <!-- Features Preview -->
+          <div class="space-y-3 mb-6">
+            <div class="flex items-center text-white/90">
+              <i class="fas fa-camera text-blue-300 text-lg mr-4"></i>
+              <span data-translate="feature1">AI-powered food scanning</span>
+            </div>
+            <div class="flex items-center text-white/90">
+              <i class="fas fa-chart-line text-green-300 text-lg mr-4"></i>
+              <span data-translate="feature2">Smart progress tracking</span>
+            </div>
+            <div class="flex items-center text-white/90">
+              <i class="fas fa-brain text-purple-300 text-lg mr-4"></i>
+              <span data-translate="feature3">Personalized recommendations</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Login Options -->
+        <div class="space-y-4 mb-8">
+          <!-- Apple ID Login -->
+          <button class="login-btn w-full bg-black text-white rounded-2xl py-4 px-6 flex items-center justify-center space-x-3 font-semibold" onclick="handleLogin('apple')">
+            <i class="fab fa-apple text-2xl"></i>
+            <span data-translate="appleLogin">Continue with Apple</span>
+            <i class="fas fa-spinner loading text-lg"></i>
+          </button>
+          
+          <!-- Google Login -->
+          <button class="login-btn w-full bg-white text-gray-800 rounded-2xl py-4 px-6 flex items-center justify-center space-x-3 font-semibold" onclick="handleLogin('google')">
+            <i class="fab fa-google text-2xl text-red-500"></i>
+            <span data-translate="googleLogin">Continue with Google</span>
+            <i class="fas fa-spinner loading text-lg text-gray-800"></i>
+          </button>
+          
+          <!-- Email Login -->
+          <button class="login-btn w-full glass-card text-white rounded-2xl py-4 px-6 flex items-center justify-center space-x-3 font-semibold" onclick="showEmailForm()">
+            <i class="fas fa-envelope text-xl"></i>
+            <span data-translate="emailLogin">Continue with Email</span>
+          </button>
+        </div>
+
+        <!-- Email Form (Hidden by default) -->
+        <div id="emailForm" class="hidden space-y-4 mb-8">
+          <div class="glass-card rounded-2xl p-6">
+            <input type="email" id="emailInput" data-translate-placeholder="emailPlaceholder" placeholder="Enter your email" class="w-full bg-white/20 text-white placeholder-white/70 rounded-xl py-3 px-4 border border-white/30 focus:border-white/60 focus:outline-none">
+            <input type="password" id="passwordInput" data-translate-placeholder="passwordPlaceholder" placeholder="Enter your password" class="w-full bg-white/20 text-white placeholder-white/70 rounded-xl py-3 px-4 border border-white/30 focus:border-white/60 focus:outline-none mt-4">
+            <div class="flex space-x-3 mt-4">
+              <button onclick="handleEmailLogin()" class="flex-1 bg-white text-gray-800 rounded-xl py-3 font-semibold" data-translate="signIn">Sign In</button>
+              <button onclick="hideEmailForm()" class="flex-1 bg-white/20 text-white rounded-xl py-3 font-semibold" data-translate="cancel">Cancel</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Terms & Privacy -->
+        <div class="text-center">
+          <p class="text-white/70 text-sm leading-relaxed">
+            <span data-translate="termsText">By continuing, you agree to our</span>
+            <button onclick="showTerms()" class="text-white underline" data-translate="terms">Terms of Service</button> 
+            <span data-translate="and">and</span>
+            <button onclick="showPrivacy()" class="text-white underline" data-translate="privacy">Privacy Policy</button>
+          </p>
+        </div>
+
+        <!-- Skip Option -->
+        <div class="text-center mt-6">
+          <button onclick="skipLogin()" class="text-white/80 text-sm underline" data-translate="skip">
+            Skip for now
+          </button>
+        </div>
+
+        <!-- Powered by Intellika -->
+        <div class="text-center mt-8">
+          <p class="text-white/60 text-xs">
+            <span data-translate="poweredBy">Powered by</span> <a href="https://intellika.io/" target="_blank" class="text-blue-300 underline hover:text-blue-200 transition-colors">Intellika</a>
+          </p>
+        </div>
+      </div>
+
+      <!-- Bottom Indicator -->
+      <div class="absolute bottom-6 left-1/2 transform -translate-x-1/2">
+        <div class="flex space-x-2">
+          <div class="w-2 h-2 bg-white/50 rounded-full"></div>
+          <div class="w-8 h-2 bg-white rounded-full"></div>
+          <div class="w-2 h-2 bg-white/50 rounded-full"></div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Language translations
+      const translations = {
+        en: {
+          tagline: "Your AI-Powered Nutrition Companion",
+          welcome: "Welcome Back",
+          description: "Track your nutrition journey with advanced AI scanning and personalized insights",
+          feature1: "AI-powered food scanning",
+          feature2: "Smart progress tracking",
+          feature3: "Personalized recommendations",
+          appleLogin: "Continue with Apple",
+          googleLogin: "Continue with Google",
+          emailLogin: "Continue with Email",
+          emailPlaceholder: "Enter your email",
+          passwordPlaceholder: "Enter your password",
+          signIn: "Sign In",
+          cancel: "Cancel",
+          termsText: "By continuing, you agree to our",
+          terms: "Terms of Service",
+          and: "and",
+          privacy: "Privacy Policy",
+          skip: "Skip for now",
+          poweredBy: "Powered by",
+          welcomeMessage: "Welcome to NutriMate!",
+          fillFields: "Please fill in all fields",
+          validEmail: "Please enter a valid email address"
+        },
+        so: {
+          tagline: "Saaxiibkaaga Nafaqada ee AI-ga",
+          welcome: "Ku Soo Dhawoow",
+          description: "La soco safarka nafaqadaada iyadoo la isticmaalayo teknoolajiyada AI-ga iyo talooyinka gaarka ah",
+          feature1: "Sawir-qaadista cuntada AI-ga",
+          feature2: "La socoshada horumarinta caqliga leh",
+          feature3: "Talooyinka gaarka ah",
+          appleLogin: "Ku sii wad Apple",
+          googleLogin: "Ku sii wad Google",
+          emailLogin: "Ku sii wad Email",
+          emailPlaceholder: "Geli email-kaaga",
+          passwordPlaceholder: "Geli password-kaaga",
+          signIn: "Gal",
+          cancel: "Jooji",
+          termsText: "Markaad sii waddo, waxaad aqbashay",
+          terms: "Shuruudaha Adeegga",
+          and: "iyo",
+          privacy: "Siyaasadda Sirta",
+          skip: "Dhaaf hadda",
+          poweredBy: "Waxaa maamula",
+          welcomeMessage: "Ku soo dhawoow NutriMate!",
+          fillFields: "Fadlan buuxi dhammaan goobaha",
+          validEmail: "Fadlan geli email sax ah"
+        }
+      };
+
+      let currentLanguage = localStorage.getItem('nutrimate_language') || 'en';
+
+      // Initialize language on page load
+      document.addEventListener('DOMContentLoaded', function() {
+        setLanguage(currentLanguage);
+      });
+
+      function toggleLanguage() {
+        currentLanguage = currentLanguage === 'en' ? 'so' : 'en';
+        setLanguage(currentLanguage);
+        localStorage.setItem('nutrimate_language', currentLanguage);
+        showNotification(currentLanguage === 'en' ? 'Language changed to English' : 'Luqadda waxaa loo beddelay Soomaali', 'success');
+      }
+
+      function setLanguage(lang) {
+        const flagIcon = document.getElementById('flagIcon');
+        const langText = document.getElementById('langText');
+        
+        // Update flag and text
+        if (lang === 'so') {
+          flagIcon.className = 'flag-icon flag-so';
+          langText.textContent = 'SO';
+        } else {
+          flagIcon.className = 'flag-icon flag-us';
+          langText.textContent = 'EN';
+        }
+
+        // Update all translatable elements
+        const elements = document.querySelectorAll('[data-translate]');
+        elements.forEach(element => {
+          const key = element.getAttribute('data-translate');
+          if (translations[lang] && translations[lang][key]) {
+            element.textContent = translations[lang][key];
+          }
+        });
+
+        // Update placeholders
+        const placeholderElements = document.querySelectorAll('[data-translate-placeholder]');
+        placeholderElements.forEach(element => {
+          const key = element.getAttribute('data-translate-placeholder');
+          if (translations[lang] && translations[lang][key]) {
+            element.placeholder = translations[lang][key];
+          }
+        });
+
+        // Update document language
+        document.documentElement.lang = lang;
+      }
+
+      function handleLogin(provider) {
+        const button = event.target;
+        const spinner = button.querySelector('.loading');
+        const text = button.querySelector('span');
+        
+        // Show loading state
+        spinner.classList.add('active');
+        text.textContent = currentLanguage === 'en' ? 'Signing in...' : 'Galaya...';
+        button.disabled = true;
+        
+        // Simulate login process
+        setTimeout(() => {
+          localStorage.setItem('nutrimate_user', JSON.stringify({
+            provider: provider,
+            name: provider === 'apple' ? 'John Doe' : 'Jane Smith',
+            email: provider === 'apple' ? 'john@icloud.com' : 'jane@gmail.com',
+            loginTime: new Date().toISOString()
+          }));
+          
+          // Navigate to dashboard
+          window.location.href = 'dashboard.html';
+          showNotification(translations[currentLanguage].welcomeMessage, 'success');
+        }, 2000);
+      }
+
+      function showEmailForm() {
+        document.getElementById('emailForm').classList.remove('hidden');
+      }
+
+      function hideEmailForm() {
+        document.getElementById('emailForm').classList.add('hidden');
+      }
+
+      function handleEmailLogin() {
+        const email = document.getElementById('emailInput').value;
+        const password = document.getElementById('passwordInput').value;
+        
+        if (!email || !password) {
+          showNotification(translations[currentLanguage].fillFields, 'error');
+          return;
+        }
+        
+        if (!isValidEmail(email)) {
+          showNotification(translations[currentLanguage].validEmail, 'error');
+          return;
+        }
+        
+        // Simulate login
+        localStorage.setItem('nutrimate_user', JSON.stringify({
+          provider: 'email',
+          name: email.split('@')[0],
+          email: email,
+          loginTime: new Date().toISOString()
+        }));
+        
+        window.location.href = 'dashboard.html';
+        showNotification(translations[currentLanguage].welcomeMessage, 'success');
+      }
+
+      function skipLogin() {
+        localStorage.setItem('nutrimate_user', JSON.stringify({
+          provider: 'guest',
+          name: 'Guest User',
+          email: 'guest@nutrimate.com',
+          loginTime: new Date().toISOString()
+        }));
+        
+        window.location.href = 'dashboard.html';
+        showNotification(translations[currentLanguage].welcomeMessage, 'success');
+      }
+
+      function showTerms() {
+        window.location.href = 'terms.html';
+      }
+
+      function showPrivacy() {
+        window.location.href = 'privacy.html';
+      }
+
+      function isValidEmail(email) {
+        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+      }
+
+      function showNotification(message, type) {
+        // Create notification element
+        const notification = document.createElement('div');
+        notification.className = `fixed top-4 left-1/2 transform -translate-x-1/2 z-50 px-6 py-3 rounded-xl text-white font-medium ${
+          type === 'success' ? 'bg-green-500' : 'bg-red-500'
+        }`;
+        notification.textContent = message;
+        
+        document.body.appendChild(notification);
+        
+        // Remove after 3 seconds
+        setTimeout(() => {
+          notification.remove();
+        }, 3000);
+      }
+
+      // Check if user is already logged in
+      if (localStorage.getItem('nutrimate_user')) {
+        window.location.href = 'dashboard.html';
+      }
+    </script>
+  </body>
+</html>
+
+                    </div>
+<div class="screen-item">
+                      <h3>Terms of Service</h3>
+                      
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NutriMate - Terms of Service</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      .terms-phone-frame {
+        width: 375px;
+        min-height: 812px;
+        background: white;
+        border-radius: 40px;
+        overflow: hidden;
+        position: relative;
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+          0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        border: 1px solid #e2e8f0;
+        margin: 2rem;
+        display: inline-flex;
+        flex-direction: column;
+      }
+      .scroll-content {
+        max-height: calc(812px - 140px);
+        overflow-y: auto;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+      }
+      .scroll-content::-webkit-scrollbar {
+        display: none;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-100 flex justify-center items-center min-h-screen">
+    <div class="terms-phone-frame">
+      <!-- Header -->
+      <div class="bg-white px-6 py-4 border-b border-gray-100 sticky top-0 z-10">
+        <div class="flex justify-between items-center">
+          <button onclick="goBack()" class="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center">
+            <i class="fas fa-arrow-left text-gray-600 text-lg"></i>
+          </button>
+          <h1 class="text-lg font-semibold text-gray-800">Terms of Service</h1>
+          <div class="w-10 h-10"></div>
+        </div>
+      </div>
+
+      <!-- Content -->
+      <div class="scroll-content flex-1 px-6 py-6">
+        <div class="space-y-6">
+          <!-- Last Updated -->
+          <div class="bg-blue-50 rounded-2xl p-4">
+            <div class="flex items-center mb-2">
+              <i class="fas fa-calendar text-blue-600 text-lg mr-2"></i>
+              <span class="font-semibold text-blue-800">Last Updated</span>
+            </div>
+            <p class="text-blue-700">December 15, 2024</p>
+          </div>
+
+          <!-- Introduction -->
+          <div>
+            <h2 class="text-xl font-bold text-gray-800 mb-4">1. Introduction</h2>
+            <p class="text-gray-600 leading-relaxed mb-4">
+              Welcome to NutriMate ("we," "our," or "us"). These Terms of Service ("Terms") govern your use of the NutriMate mobile application and related services (collectively, the "Service").
+            </p>
+            <p class="text-gray-600 leading-relaxed">
+              By accessing or using our Service, you agree to be bound by these Terms. If you disagree with any part of these terms, then you may not access the Service.
+            </p>
+          </div>
+
+          <!-- Acceptance of Terms -->
+          <div>
+            <h2 class="text-xl font-bold text-gray-800 mb-4">2. Acceptance of Terms</h2>
+            <p class="text-gray-600 leading-relaxed mb-4">
+              By creating an account or using NutriMate, you acknowledge that you have read, understood, and agree to be bound by these Terms and our Privacy Policy.
+            </p>
+            <div class="bg-yellow-50 rounded-2xl p-4">
+              <div class="flex items-start">
+                <i class="fas fa-exclamation-triangle text-yellow-600 text-lg mr-3 mt-1"></i>
+                <div>
+                  <p class="text-yellow-800 font-medium mb-1">Important Notice</p>
+                  <p class="text-yellow-700 text-sm">You must be at least 13 years old to use NutriMate. Users under 18 require parental consent.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Service Description -->
+          <div>
+            <h2 class="text-xl font-bold text-gray-800 mb-4">3. Service Description</h2>
+            <p class="text-gray-600 leading-relaxed mb-4">
+              NutriMate provides AI-powered nutrition tracking services, including:
+            </p>
+            <ul class="space-y-2 mb-4">
+              <li class="flex items-start text-gray-600">
+                <i class="fas fa-check text-green-500 text-sm mr-3 mt-1"></i>
+                <span>Food scanning and recognition technology</span>
+              </li>
+              <li class="flex items-start text-gray-600">
+                <i class="fas fa-check text-green-500 text-sm mr-3 mt-1"></i>
+                <span>Nutritional information and calorie tracking</span>
+              </li>
+              <li class="flex items-start text-gray-600">
+                <i class="fas fa-check text-green-500 text-sm mr-3 mt-1"></i>
+                <span>Weight and progress monitoring</span>
+              </li>
+              <li class="flex items-start text-gray-600">
+                <i class="fas fa-check text-green-500 text-sm mr-3 mt-1"></i>
+                <span>Personalized recommendations and insights</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- User Accounts -->
+          <div>
+            <h2 class="text-xl font-bold text-gray-800 mb-4">4. User Accounts</h2>
+            <p class="text-gray-600 leading-relaxed mb-4">
+              To access certain features, you may need to create an account. You are responsible for:
+            </p>
+            <ul class="space-y-2 mb-4">
+              <li class="flex items-start text-gray-600">
+                <i class="fas fa-shield-alt text-blue-500 text-sm mr-3 mt-1"></i>
+                <span>Maintaining the confidentiality of your account credentials</span>
+              </li>
+              <li class="flex items-start text-gray-600">
+                <i class="fas fa-shield-alt text-blue-500 text-sm mr-3 mt-1"></i>
+                <span>All activities that occur under your account</span>
+              </li>
+              <li class="flex items-start text-gray-600">
+                <i class="fas fa-shield-alt text-blue-500 text-sm mr-3 mt-1"></i>
+                <span>Providing accurate and complete information</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Acceptable Use -->
+          <div>
+            <h2 class="text-xl font-bold text-gray-800 mb-4">5. Acceptable Use</h2>
+            <p class="text-gray-600 leading-relaxed mb-4">
+              You agree not to use the Service to:
+            </p>
+            <ul class="space-y-2 mb-4">
+              <li class="flex items-start text-gray-600">
+                <i class="fas fa-times text-red-500 text-sm mr-3 mt-1"></i>
+                <span>Violate any applicable laws or regulations</span>
+              </li>
+              <li class="flex items-start text-gray-600">
+                <i class="fas fa-times text-red-500 text-sm mr-3 mt-1"></i>
+                <span>Transmit harmful, offensive, or inappropriate content</span>
+              </li>
+              <li class="flex items-start text-gray-600">
+                <i class="fas fa-times text-red-500 text-sm mr-3 mt-1"></i>
+                <span>Attempt to gain unauthorized access to our systems</span>
+              </li>
+              <li class="flex items-start text-gray-600">
+                <i class="fas fa-times text-red-500 text-sm mr-3 mt-1"></i>
+                <span>Interfere with or disrupt the Service</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Medical Disclaimer -->
+          <div>
+            <h2 class="text-xl font-bold text-gray-800 mb-4">6. Medical Disclaimer</h2>
+            <div class="bg-red-50 rounded-2xl p-4 mb-4">
+              <div class="flex items-start">
+                <i class="fas fa-medical-kit text-red-600 text-lg mr-3 mt-1"></i>
+                <div>
+                  <p class="text-red-800 font-medium mb-2">Important Medical Notice</p>
+                  <p class="text-red-700 text-sm leading-relaxed">
+                    NutriMate is not a medical device and should not be used as a substitute for professional medical advice, diagnosis, or treatment. Always consult with qualified healthcare providers regarding your health and nutrition needs.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Privacy -->
+          <div>
+            <h2 class="text-xl font-bold text-gray-800 mb-4">7. Privacy</h2>
+            <p class="text-gray-600 leading-relaxed mb-4">
+              Your privacy is important to us. Our Privacy Policy explains how we collect, use, and protect your information when you use our Service.
+            </p>
+            <button onclick="showPrivacy()" class="bg-blue-100 text-blue-800 rounded-xl px-4 py-2 font-medium">
+              View Privacy Policy
+            </button>
+          </div>
+
+          <!-- Intellectual Property -->
+          <div>
+            <h2 class="text-xl font-bold text-gray-800 mb-4">8. Intellectual Property</h2>
+            <p class="text-gray-600 leading-relaxed mb-4">
+              The Service and its original content, features, and functionality are owned by NutriMate and are protected by international copyright, trademark, patent, trade secret, and other intellectual property laws.
+            </p>
+          </div>
+
+          <!-- Termination -->
+          <div>
+            <h2 class="text-xl font-bold text-gray-800 mb-4">9. Termination</h2>
+            <p class="text-gray-600 leading-relaxed mb-4">
+              We may terminate or suspend your account and access to the Service immediately, without prior notice, for conduct that we believe violates these Terms or is harmful to other users, us, or third parties.
+            </p>
+          </div>
+
+          <!-- Limitation of Liability -->
+          <div>
+            <h2 class="text-xl font-bold text-gray-800 mb-4">10. Limitation of Liability</h2>
+            <p class="text-gray-600 leading-relaxed mb-4">
+              In no event shall NutriMate be liable for any indirect, incidental, special, consequential, or punitive damages, including without limitation, loss of profits, data, use, goodwill, or other intangible losses.
+            </p>
+          </div>
+
+          <!-- Changes to Terms -->
+          <div>
+            <h2 class="text-xl font-bold text-gray-800 mb-4">11. Changes to Terms</h2>
+            <p class="text-gray-600 leading-relaxed mb-4">
+              We reserve the right to modify these Terms at any time. We will notify users of any material changes via email or through the Service. Your continued use constitutes acceptance of the modified Terms.
+            </p>
+          </div>
+
+          <!-- Contact Information -->
+          <div>
+            <h2 class="text-xl font-bold text-gray-800 mb-4">12. Contact Us</h2>
+            <p class="text-gray-600 leading-relaxed mb-4">
+              If you have any questions about these Terms, please contact us:
+            </p>
+            <div class="bg-gray-50 rounded-2xl p-4">
+              <div class="space-y-2">
+                <div class="flex items-center">
+                  <i class="fas fa-envelope text-gray-600 text-sm mr-3"></i>
+                  <span class="text-gray-700">support@nutrimate.com</span>
+                </div>
+                <div class="flex items-center">
+                  <i class="fas fa-globe text-gray-600 text-sm mr-3"></i>
+                  <span class="text-gray-700">www.nutrimate.com</span>
+                </div>
+                <div class="flex items-center">
+                  <i class="fas fa-map-marker-alt text-gray-600 text-sm mr-3"></i>
+                  <span class="text-gray-700">123 Health Street, Wellness City, WC 12345</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Powered by Intellika -->
+          <div class="text-center py-6 border-t border-gray-200">
+            <p class="text-gray-500 text-sm">
+              Powered by <a href="https://intellika.io/" target="_blank" class="text-blue-600 underline hover:text-blue-800 transition-colors">Intellika</a>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom Actions -->
+      <div class="bg-white border-t border-gray-100 px-6 py-4">
+        <div class="flex space-x-3">
+          <button onclick="acceptTerms()" class="flex-1 bg-blue-600 text-white rounded-2xl py-3 font-semibold">
+            Accept Terms
+          </button>
+          <button onclick="goBack()" class="flex-1 bg-gray-100 text-gray-700 rounded-2xl py-3 font-semibold">
+            Go Back
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function goBack() {
+        window.history.back();
+      }
+
+      function showPrivacy() {
+        window.location.href = '#privacy';
+      }
+
+      function acceptTerms() {
+        localStorage.setItem('nutrimate_terms_accepted', 'true');
+        showNotification('Terms accepted successfully!', 'success');
+        setTimeout(() => {
+          goBack();
+        }, 1500);
+      }
+
+      function showNotification(message, type) {
+        const notification = document.createElement('div');
+        notification.className = `fixed top-4 left-1/2 transform -translate-x-1/2 z-50 px-6 py-3 rounded-xl text-white font-medium ${
+          type === 'success' ? 'bg-green-500' : 'bg-red-500'
+        }`;
+        notification.textContent = message;
+        
+        document.body.appendChild(notification);
+        
+        setTimeout(() => {
+          notification.remove();
+        }, 3000);
+      }
+    </script>
+  </body>
+</html>
+
+                    </div>
+<div class="screen-item">
+                      <h3>Privacy Policy</h3>
+                      
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NutriMate - Privacy Policy</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      .privacy-phone-frame {
+        width: 375px;
+        min-height: 812px;
+        background: white;
+        border-radius: 40px;
+        overflow: hidden;
+        position: relative;
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+          0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        border: 1px solid #e2e8f0;
+        margin: 2rem;
+        display: inline-flex;
+        flex-direction: column;
+      }
+      .scroll-content {
+        max-height: calc(812px - 140px);
+        overflow-y: auto;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+      }
+      .scroll-content::-webkit-scrollbar {
+        display: none;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-100 flex justify-center items-center min-h-screen">
+    <div class="privacy-phone-frame">
+      <!-- Header -->
+      <div class="bg-white px-6 py-4 border-b border-gray-100 sticky top-0 z-10">
+        <div class="flex justify-between items-center">
+          <button onclick="goBack()" class="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center">
+            <i class="fas fa-arrow-left text-gray-600 text-lg"></i>
+          </button>
+          <h1 class="text-lg font-semibold text-gray-800">Privacy Policy</h1>
+          <div class="w-10 h-10"></div>
+        </div>
+      </div>
+
+      <!-- Content -->
+      <div class="scroll-content flex-1 px-6 py-6">
+        <div class="space-y-6">
+          <!-- Last Updated -->
+          <div class="bg-green-50 rounded-2xl p-4">
+            <div class="flex items-center mb-2">
+              <i class="fas fa-shield-alt text-green-600 text-lg mr-2"></i>
+              <span class="font-semibold text-green-800">Privacy Protected</span>
+            </div>
+            <p class="text-green-700 text-sm">Last Updated: December 15, 2024</p>
+          </div>
+
+          <!-- Introduction -->
+          <div>
+            <h2 class="text-xl font-bold text-gray-800 mb-4">1. Introduction</h2>
+            <p class="text-gray-600 leading-relaxed mb-4">
+              At NutriMate, we take your privacy seriously. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our mobile application and services.
+            </p>
+            <div class="bg-blue-50 rounded-2xl p-4">
+              <div class="flex items-start">
+                <i class="fas fa-info-circle text-blue-600 text-lg mr-3 mt-1"></i>
+                <div>
+                  <p class="text-blue-800 font-medium mb-1">Our Commitment</p>
+                  <p class="text-blue-700 text-sm">We are committed to protecting your personal information and your right to privacy.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Information We Collect -->
+          <div>
+            <h2 class="text-xl font-bold text-gray-800 mb-4">2. Information We Collect</h2>
+            
+            <h3 class="text-lg font-semibold text-gray-800 mb-3">Personal Information</h3>
+            <ul class="space-y-2 mb-4">
+              <li class="flex items-start text-gray-600">
+                <i class="fas fa-user text-blue-500 text-sm mr-3 mt-1"></i>
+                <span>Name, email address, and profile information</span>
+              </li>
+              <li class="flex items-start text-gray-600">
+                <i class="fas fa-weight text-blue-500 text-sm mr-3 mt-1"></i>
+                <span>Health and fitness data (weight, goals, preferences)</span>
+              </li>
+              <li class="flex items-start text-gray-600">
+                <i class="fas fa-utensils text-blue-500 text-sm mr-3 mt-1"></i>
+                <span>Food intake and nutritional information</span>
+              </li>
+            </ul>
+
+            <h3 class="text-lg font-semibold text-gray-800 mb-3">Technical Information</h3>
+            <ul class="space-y-2 mb-4">
+              <li class="flex items-start text-gray-600">
+                <i class="fas fa-mobile-alt text-purple-500 text-sm mr-3 mt-1"></i>
+                <span>Device information and identifiers</span>
+              </li>
+              <li class="flex items-start text-gray-600">
+                <i class="fas fa-chart-line text-purple-500 text-sm mr-3 mt-1"></i>
+                <span>Usage data and app interactions</span>
+              </li>
+              <li class="flex items-start text-gray-600">
+                <i class="fas fa-camera text-purple-500 text-sm mr-3 mt-1"></i>
+                <span>Photos for food scanning (processed locally)</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- How We Use Information -->
+          <div>
+            <h2 class="text-xl font-bold text-gray-800 mb-4">3. How We Use Your Information</h2>
+            <p class="text-gray-600 leading-relaxed mb-4">
+              We use your information to:
+            </p>
+            <ul class="space-y-2 mb-4">
+              <li class="flex items-start text-gray-600">
+                <i class="fas fa-cog text-green-500 text-sm mr-3 mt-1"></i>
+                <span>Provide and maintain our services</span>
+              </li>
+              <li class="flex items-start text-gray-600">
+                <i class="fas fa-brain text-green-500 text-sm mr-3 mt-1"></i>
+                <span>Generate personalized recommendations</span>
+              </li>
+              <li class="flex items-start text-gray-600">
+                <i class="fas fa-chart-bar text-green-500 text-sm mr-3 mt-1"></i>
+                <span>Track your progress and goals</span>
+              </li>
+              <li class="flex items-start text-gray-600">
+                <i class="fas fa-envelope text-green-500 text-sm mr-3 mt-1"></i>
+                <span>Send important updates and notifications</span>
+              </li>
+              <li class="flex items-start text-gray-600">
+                <i class="fas fa-shield-alt text-green-500 text-sm mr-3 mt-1"></i>
+                <span>Improve security and prevent fraud</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- AI and Data Processing -->
+          <div>
+            <h2 class="text-xl font-bold text-gray-800 mb-4">4. AI and Data Processing</h2>
+            <div class="bg-purple-50 rounded-2xl p-4 mb-4">
+              <div class="flex items-start">
+                <i class="fas fa-robot text-purple-600 text-lg mr-3 mt-1"></i>
+                <div>
+                  <p class="text-purple-800 font-medium mb-2">AI-Powered Features</p>
+                  <p class="text-purple-700 text-sm leading-relaxed">
+                    Our AI technology processes your food images locally on your device for privacy. Only anonymized nutritional data is used to improve our recognition algorithms.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Data Sharing -->
+          <div>
+            <h2 class="text-xl font-bold text-gray-800 mb-4">5. Information Sharing</h2>
+            <p class="text-gray-600 leading-relaxed mb-4">
+              We do not sell, trade, or rent your personal information. We may share information only in these limited circumstances:
+            </p>
+            <ul class="space-y-2 mb-4">
+              <li class="flex items-start text-gray-600">
+                <i class="fas fa-handshake text-orange-500 text-sm mr-3 mt-1"></i>
+                <span>With trusted service providers who assist our operations</span>
+              </li>
+              <li class="flex items-start text-gray-600">
+                <i class="fas fa-balance-scale text-orange-500 text-sm mr-3 mt-1"></i>
+                <span>When required by law or legal process</span>
+              </li>
+              <li class="flex items-start text-gray-600">
+                <i class="fas fa-shield-alt text-orange-500 text-sm mr-3 mt-1"></i>
+                <span>To protect our rights and prevent harm</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Data Security -->
+          <div>
+            <h2 class="text-xl font-bold text-gray-800 mb-4">6. Data Security</h2>
+            <p class="text-gray-600 leading-relaxed mb-4">
+              We implement industry-standard security measures to protect your information:
+            </p>
+            <div class="grid grid-cols-1 gap-3 mb-4">
+              <div class="bg-gray-50 rounded-xl p-3 flex items-center">
+                <i class="fas fa-lock text-red-500 text-lg mr-3"></i>
+                <span class="text-gray-700 font-medium">End-to-end encryption</span>
+              </div>
+              <div class="bg-gray-50 rounded-xl p-3 flex items-center">
+                <i class="fas fa-server text-blue-500 text-lg mr-3"></i>
+                <span class="text-gray-700 font-medium">Secure cloud storage</span>
+              </div>
+              <div class="bg-gray-50 rounded-xl p-3 flex items-center">
+                <i class="fas fa-user-shield text-green-500 text-lg mr-3"></i>
+                <span class="text-gray-700 font-medium">Access controls</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Your Rights -->
+          <div>
+            <h2 class="text-xl font-bold text-gray-800 mb-4">7. Your Privacy Rights</h2>
+            <p class="text-gray-600 leading-relaxed mb-4">
+              You have the right to:
+            </p>
+            <ul class="space-y-2 mb-4">
+              <li class="flex items-start text-gray-600">
+                <i class="fas fa-eye text-blue-500 text-sm mr-3 mt-1"></i>
+                <span>Access your personal information</span>
+              </li>
+              <li class="flex items-start text-gray-600">
+                <i class="fas fa-edit text-blue-500 text-sm mr-3 mt-1"></i>
+                <span>Correct inaccurate information</span>
+              </li>
+              <li class="flex items-start text-gray-600">
+                <i class="fas fa-trash text-blue-500 text-sm mr-3 mt-1"></i>
+                <span>Delete your account and data</span>
+              </li>
+              <li class="flex items-start text-gray-600">
+                <i class="fas fa-download text-blue-500 text-sm mr-3 mt-1"></i>
+                <span>Export your data</span>
+              </li>
+              <li class="flex items-start text-gray-600">
+                <i class="fas fa-ban text-blue-500 text-sm mr-3 mt-1"></i>
+                <span>Opt-out of certain data processing</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Data Retention -->
+          <div>
+            <h2 class="text-xl font-bold text-gray-800 mb-4">8. Data Retention</h2>
+            <p class="text-gray-600 leading-relaxed mb-4">
+              We retain your information only as long as necessary to provide our services and comply with legal obligations. You can request deletion of your account at any time.
+            </p>
+          </div>
+
+          <!-- Children's Privacy -->
+          <div>
+            <h2 class="text-xl font-bold text-gray-800 mb-4">9. Children's Privacy</h2>
+            <div class="bg-yellow-50 rounded-2xl p-4 mb-4">
+              <div class="flex items-start">
+                <i class="fas fa-child text-yellow-600 text-lg mr-3 mt-1"></i>
+                <div>
+                  <p class="text-yellow-800 font-medium mb-1">Age Restrictions</p>
+                  <p class="text-yellow-700 text-sm">Our service is not intended for children under 13. We do not knowingly collect personal information from children under 13.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- International Users -->
+          <div>
+            <h2 class="text-xl font-bold text-gray-800 mb-4">10. International Users</h2>
+            <p class="text-gray-600 leading-relaxed mb-4">
+              If you are accessing our service from outside the United States, please be aware that your information may be transferred to, stored, and processed in the United States where our servers are located.
+            </p>
+          </div>
+
+          <!-- Changes to Privacy Policy -->
+          <div>
+            <h2 class="text-xl font-bold text-gray-800 mb-4">11. Changes to This Policy</h2>
+            <p class="text-gray-600 leading-relaxed mb-4">
+              We may update this Privacy Policy from time to time. We will notify you of any material changes by posting the new Privacy Policy on this page and updating the "Last Updated" date.
+            </p>
+          </div>
+
+          <!-- Contact Information -->
+          <div>
+            <h2 class="text-xl font-bold text-gray-800 mb-4">12. Contact Us</h2>
+            <p class="text-gray-600 leading-relaxed mb-4">
+              If you have questions about this Privacy Policy, please contact us:
+            </p>
+            <div class="bg-gray-50 rounded-2xl p-4">
+              <div class="space-y-3">
+                <div class="flex items-center">
+                  <i class="fas fa-envelope text-gray-600 text-sm mr-3"></i>
+                  <span class="text-gray-700">privacy@nutrimate.com</span>
+                </div>
+                <div class="flex items-center">
+                  <i class="fas fa-phone text-gray-600 text-sm mr-3"></i>
+                  <span class="text-gray-700">1-800-NUTRIMATE</span>
+                </div>
+                <div class="flex items-center">
+                  <i class="fas fa-map-marker-alt text-gray-600 text-sm mr-3"></i>
+                  <span class="text-gray-700">123 Health Street, Wellness City, WC 12345</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Powered by Intellika -->
+          <div class="text-center py-6 border-t border-gray-200">
+            <p class="text-gray-500 text-sm">
+              Powered by <a href="https://intellika.io/" target="_blank" class="text-blue-600 underline hover:text-blue-800 transition-colors">Intellika</a>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom Actions -->
+      <div class="bg-white border-t border-gray-100 px-6 py-4">
+        <div class="flex space-x-3">
+          <button onclick="acceptPrivacy()" class="flex-1 bg-green-600 text-white rounded-2xl py-3 font-semibold">
+            Accept Policy
+          </button>
+          <button onclick="goBack()" class="flex-1 bg-gray-100 text-gray-700 rounded-2xl py-3 font-semibold">
+            Go Back
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function goBack() {
+        window.history.back();
+      }
+
+      function acceptPrivacy() {
+        localStorage.setItem('nutrimate_privacy_accepted', 'true');
+        showNotification('Privacy policy accepted!', 'success');
+        setTimeout(() => {
+          goBack();
+        }, 1500);
+      }
+
+      function showNotification(message, type) {
+        const notification = document.createElement('div');
+        notification.className = `fixed top-4 left-1/2 transform -translate-x-1/2 z-50 px-6 py-3 rounded-xl text-white font-medium ${
+          type === 'success' ? 'bg-green-500' : 'bg-red-500'
+        }`;
+        notification.textContent = message;
+        
+        document.body.appendChild(notification);
+        
+        setTimeout(() => {
+          notification.remove();
+        }, 3000);
+      }
+    </script>
+  </body>
+</html>
+
+                    </div>
+    </div>
+</body>
+</html>
+      
